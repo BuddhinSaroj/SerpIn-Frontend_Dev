@@ -13,7 +13,7 @@ class SignUpScreen extends StatelessWidget {
             true, // Set this to true to extend the body behind the app bar
         appBar: PreferredSize(
           preferredSize:
-              const Size.fromHeight(50.0), // Specify the desired height
+              const Size.fromHeight(40.0), // Specify the desired height
           child: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -47,7 +47,7 @@ class SignUpScreen extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -56,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
                     width: 317,
                     height: 317,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
@@ -70,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Container(
                     width: 360,
                     height: 55,
@@ -88,7 +88,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Container(
                     width: 360,
                     height: 55,
@@ -106,7 +106,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Container(
                     width: 360,
                     height: 55,
@@ -125,7 +125,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Container(
                     width: 360,
                     height: 55,
@@ -144,7 +144,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
                   Container(
                     width: 360,
                     height: 55,
@@ -170,7 +170,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20, bottom: 10),
+                    margin: const EdgeInsets.only(top: 10, bottom: 5),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
