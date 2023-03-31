@@ -10,7 +10,7 @@ class SignUpScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar:
-            true, // Set this to true to extend the body behind the app bar
+            false, // Set this to true to extend the body behind the app bar
         appBar: PreferredSize(
           preferredSize:
               const Size.fromHeight(40.0), // Specify the desired height

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:serpin_mobile_application/sign_up_screen.dart';
 
+import 'login_screen.dart';
+
 void main() {
   runApp(const MaterialApp(
     home: WelcomeScreen(),
@@ -110,7 +112,14 @@ class WelcomeScreen extends StatelessWidget {
                             children: [
                               const Text('Joined us before? '),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginScreen()),
+                                  );
+                                },
                                 child: const Text(
                                   'Login',
                                   style: TextStyle(

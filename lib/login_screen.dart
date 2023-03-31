@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:serpin_mobile_application/forgot_password.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -110,6 +111,12 @@ class LoginScreen extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 // Forgot Password functionality
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ForgotPasswordScreen()),
+                                );
                               },
                               child: const Text(
                                 'Forgot Password?',
