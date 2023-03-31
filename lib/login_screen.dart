@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:serpin_mobile_application/forgot_password.dart';
+import 'package:serpin_mobile_application/sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -204,7 +205,13 @@ class LoginScreen extends StatelessWidget {
                               const SizedBox(width: 8.0),
                               GestureDetector(
                                 onTap: () {
-// Navigate to sign up screen
+                                  // Navigate to sign up screen
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SignUpScreen()),
+                                  );
                                 },
                                 child: const Text(
                                   'Sign Up',

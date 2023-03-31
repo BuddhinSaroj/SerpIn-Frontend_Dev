@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:serpin_mobile_application/otp_screen.dart';
+import 'package:serpin_mobile_application/reset_password.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,47 +37,40 @@ class ForgotPasswordScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SvgPicture.asset(
-                    'assets/forgot_password.svg',
+                    'assets/otp.svg',
                     width: 317,
                     height: 317,
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 30),
                   const Text(
-                    'Forgot \nPassword?',
+                    'Enter \nSecurity Code',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 34,
                     ),
                   ),
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 15),
                   const Text(
-                    'Don’t worry! It happens. Please enter the address associated with your account.',
+                    'Continue resetting the password by entering the 5 digit code that has been sent to your email.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
-                  const SizedBox(height: 25),
-                  TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: 'Email',
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide.none,
-                      ),
-                      prefixIcon: const Icon(Icons.email),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: 360,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _buildOtpTextField(),
+                        _buildOtpTextField(),
+                        _buildOtpTextField(),
+                        _buildOtpTextField(),
+                        _buildOtpTextField(),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 20),
                   SizedBox(
                     width: 360,
                     height: 57,
@@ -86,7 +79,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const OtpScreen()),
+                              builder: (context) => const ResetScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -108,6 +101,35 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildOtpTextField() {
+    return Container(
+      width: 50,
+      height: 57,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Center(
+        child: TextFormField(
+          textAlign: TextAlign.center,
+          keyboardType: TextInputType.number,
+          maxLength: 1,
+          decoration: const InputDecoration(
+            counterText: '',
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+            ),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 8,
+            ),
+            hintText: '0',
           ),
         ),
       ),
