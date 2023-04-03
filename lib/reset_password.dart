@@ -62,7 +62,7 @@ class ResetScreen extends StatelessWidget {
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: 'New Password',
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(

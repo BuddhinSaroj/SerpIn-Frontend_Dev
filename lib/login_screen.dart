@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:serpin_mobile_application/forgot_password.dart';
+import 'package:serpin_mobile_application/home_page.dart';
 import 'package:serpin_mobile_application/sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -130,7 +131,13 @@ class LoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 20.0),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePage()),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF007770),
                             shape: RoundedRectangleBorder(
