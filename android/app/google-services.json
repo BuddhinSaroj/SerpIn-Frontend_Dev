@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "660671945701",
+    "project_id": "serpin-firebase",
+    "storage_bucket": "serpin-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660671945701:android:f159e7bb5d52885387ed0c",
+        "android_client_info": {
+          "package_name": "com.example.serpin_mobile_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660671945701-t8n673ba0v3c39h8k37v65tj6kostldf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Lvp2DTLs8WkRLjma_p8BlrJHbxNIgbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660671945701-t8n673ba0v3c39h8k37v65tj6kostldf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

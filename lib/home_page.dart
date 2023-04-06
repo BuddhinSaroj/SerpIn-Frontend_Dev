@@ -1,8 +1,41 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key});
+
+  @override
+  _HomePage createState() => _HomePage();
+}
+
+class _HomePage extends State<HomePage> {
+  File? image;
+
+  Future captureImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.camera);
+      if (image == null) return;
+      final imageTemporary = File(image.path);
+      setState(() => this.image = imageTemporary);
+    } on PlatformException catch (e) {
+      print("Failed to capture image: $e");
+    }
+  }
+
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imageTemporary = File(image.path);
+      setState(() => this.image = imageTemporary);
+    } on PlatformException catch (e) {
+      print("Failed to pick image: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,72 +76,174 @@ class HomePage extends StatelessWidget {
               end: Alignment.topRight,
             ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 16.0, top: 8.0),
-                child: Text(
-                  "Recent Posts",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color(0xFF007770),
-                    fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            reverse: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
+                    child: Text(
+                      "Recent Posts",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Color(0xFF007770),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                height: 300,
-                width: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: const LinearGradient(
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.topRight,
-                    colors: [
-                      Color(0xFFABFFDC),
-                      Color(0xFFFAFEFF),
+                Container(
+                  height: 270,
+                  width: 350,
+                  decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 4,
+                        offset: Offset(4, 8), // Shadow position
+                      ),
                     ],
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFFABFFDC),
+                        Color(0xFFD3FCF8),
+                      ],
+                    ),
+                  ),
+                  child: CarouselSlider(
+                    items: [
+                      _buildPostCard(
+                        imageUrl: 'https://picsum.photos/200',
+                        userProfileImageUrl: 'https://picsum.photos/50',
+                        username: 'John Doe',
+                        daysAgo: '2 days ago',
+                        postDescription:
+                            'This is another description of my post.',
+                      ),
+                      _buildPostCard(
+                        imageUrl: 'https://picsum.photos/201',
+                        userProfileImageUrl: 'https://picsum.photos/51',
+                        username: 'Jane Smith',
+                        daysAgo: '3 days ago',
+                        postDescription:
+                            'This is another description of my post.',
+                      ),
+                    ],
+                    options: CarouselOptions(
+                      height: 200,
+                      viewportFraction: 0.9,
+                      enlargeCenterPage: true,
+                    ),
                   ),
                 ),
-                child: CarouselSlider(
-                  items: [
-                    _buildPostCard(
-                      imageUrl: 'https://picsum.photos/200',
-                      userProfileImageUrl: 'https://picsum.photos/50',
-                      username: 'John Doe',
-                      daysAgo: '2 days ago',
-                      postDescription:
-                          'This is another description of my post.',
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
+                    child: Text(
+                      "Upload or Capture Image",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Color(0xFF007770),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    _buildPostCard(
-                      imageUrl: 'https://picsum.photos/201',
-                      userProfileImageUrl: 'https://picsum.photos/51',
-                      username: 'Jane Smith',
-                      daysAgo: '3 days ago',
-                      postDescription:
-                          'This is another description of my post.',
+                  ),
+                ),
+                Container(
+                  width: 350,
+                  height: 270,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFFABFFDC), Color(0xFFD3FCF8)],
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomCenter,
                     ),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: Colors.grey,
+                      style: BorderStyle.solid,
+                      width: 2.0,
+                    ),
+                  ),
+                  child: image != null
+                      ? ClipRRect(
+                          child: Image.file(
+                            image!,
+                            width: 300,
+                            height: 220,
+                            fit: BoxFit.fill,
+                          ),
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    captureImage(ImageSource.camera);
+                                  },
+                                  icon: const Icon(
+                                      Icons.add_circle_outline_rounded),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Icon(
+                                  Icons.camera_alt,
+                                  color: Colors.grey,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "Capture",
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF007770),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        minimumSize: const Size(125.0, 40.0),
+                      ),
+                      onPressed: () {
+                        pickImage(ImageSource.gallery);
+                      },
+                      child: const Text(
+                        'Upload',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
                   ],
-                  options: CarouselOptions(
-                    height: 250,
-                    viewportFraction: 0.9,
-                    enlargeCenterPage: true,
-                  ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 16.0, top: 8.0),
-                child: Text(
-                  "Upload or Capture Image",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color(0xFF007770),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -123,7 +258,7 @@ class HomePage extends StatelessWidget {
     required String postDescription,
   }) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(2.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -159,7 +294,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 30.0),
+            padding: const EdgeInsets.only(top: 10.0),
             child: SizedBox(
               height: 120,
               child: Row(
