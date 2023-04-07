@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:serpin_mobile_application/BottomNavBar.dart';
+import 'package:serpin_mobile_application/Services/auth_service.dart';
 import 'package:serpin_mobile_application/forgot_password.dart';
-import 'package:serpin_mobile_application/home_page.dart';
 import 'package:serpin_mobile_application/sign_up_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+  @override
+  _LoginScreen createState() => _LoginScreen();
+}
+
+class _LoginScreen extends State<LoginScreen> {
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                     child: SvgPicture.asset(
                       'assets/login_screen.svg',
                       width: 317,
-                      height: 317,
+                      height: 270,
                     ),
                   ),
                   const SizedBox(height: 15.0),
@@ -62,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Row(
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 16.0,
@@ -71,6 +91,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               Expanded(
                                 child: TextField(
+                                  controller: emailController,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Email',
@@ -88,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Row(
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 16.0,
@@ -98,6 +119,7 @@ class LoginScreen extends StatelessWidget {
                               Expanded(
                                 child: TextField(
                                   obscureText: true,
+                                  controller: passwordController,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Password',
@@ -133,11 +155,12 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(height: 20.0),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const BottomNavBar()),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => const BottomNavBar()),
+                            // );
+                            logIn();
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF007770),
@@ -169,7 +192,18 @@ class LoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10.0),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            // await FirebaseServices().signInWithGoogle();
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => BottomNavBar()));
+
+                            final provider = Provider.of<GoogleSignInProvider>(
+                                context,
+                                listen: false);
+                            provider.googleLogin();
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -242,5 +276,28 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  quickAlert(QuickAlertType, userText) {
+    QuickAlert.show(
+      context: context,
+      type: QuickAlertType,
+      text: userText,
+    );
+  }
+
+  Future logIn() async {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text)
+        .then((value) {
+      //quickAlert(QuickAlertType.loading, "Fetching your Data");
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+    }).onError((error, stackTrace) {
+      print("ERROR ${error.toString()}");
+      quickAlert(
+          QuickAlertType.error, "Please Enter Correct Credentials for Login");
+    });
   }
 }

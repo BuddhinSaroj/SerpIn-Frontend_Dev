@@ -1,13 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:serpin_mobile_application/sign_up_screen.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'Services/auth_service.dart';
 import 'login_screen.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: WelcomeScreen(),
-  ));
+// void main() {
+//   runApp(const MaterialApp(
+//     home: WelcomeScreen(),
+//   ));
+// }
+
+// Future main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(const MaterialApp(
+//     home: WelcomeScreen(),
+//   ));
+// }
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GoogleSignInProvider()),
+        // Add any other providers you need
+      ],
+      child: const MaterialApp(
+        home: WelcomeScreen(),
+      ),
+    ),
+  );
 }
 
 class WelcomeScreen extends StatelessWidget {

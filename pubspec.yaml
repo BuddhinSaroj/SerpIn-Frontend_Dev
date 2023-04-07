@@ -36,6 +36,16 @@ dependencies:
   dotted_border: ^2.0.0+1
   image_picker: ^0.8.7+1
   cloud_firestore: ^4.5.0
+  firebase_auth: ^4.4.0
+  firebase_core: ^2.9.0
+  quickalert: ^1.0.1
+  google_sign_in: ^6.0.2
+  provider: ^6.0.5
+  google_fonts: ^4.0.3
+  get: ^4.6.5
+  flutter_native_splash: ^2.1.1
+
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -44,6 +54,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  background_image: "assets/splash_img.png"
+  android: true
+  ios: true
+  android_gravity: center
+  ios_content_mode: center
+  fullscreen: true
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -74,6 +93,8 @@ flutter:
     - assets/forgot_password.svg
     - assets/reset_password.svg
     - assets/otp.svg
+    - assets/logo_white.png
+    - assets/splash_img.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

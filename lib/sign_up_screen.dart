@@ -1,9 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:serpin_mobile_application/login_screen.dart';
+import 'package:quickalert/quickalert.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
+
+  @override
+  _SignUpScreen createState() => _SignUpScreen();
+}
+
+class _SignUpScreen extends State<SignUpScreen> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +55,14 @@ class SignUpScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  child: SvgPicture.asset(
-                    'assets/signup.svg',
-                    width: 317,
-                    height: 300,
+                Padding(
+                  padding: EdgeInsets.only(top: 0),
+                  child: SizedBox(
+                    child: SvgPicture.asset(
+                      'assets/signup.svg',
+                      width: 317,
+                      height: 270,
+                    ),
                   ),
                 ),
                 const Padding(
@@ -60,7 +83,8 @@ class SignUpScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
                     children: [
-                      TextFormField(
+                      TextField(
+                        controller: nameController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -80,7 +104,8 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      TextFormField(
+                      TextField(
+                        controller: emailController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -100,7 +125,8 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      TextFormField(
+                      TextField(
+                        controller: passwordController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -120,7 +146,8 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      TextFormField(
+                      TextField(
+                        controller: confirmPasswordController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -144,7 +171,9 @@ class SignUpScreen extends StatelessWidget {
                         width: 360,
                         height: 57,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            signUp();
+                          },
                           style: ElevatedButton.styleFrom(
                             primary: const Color(0xFF007770),
                             minimumSize: const Size(360, 57),
@@ -204,5 +233,27 @@ class SignUpScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  quickAlert(QuickAlertType, userText) {
+    QuickAlert.show(
+      context: context,
+      type: QuickAlertType,
+      text: userText,
+    );
+  }
+
+  Future signUp() async {
+    FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text)
+        .then((value) {
+      print("Created New Account");
+      quickAlert(QuickAlertType.success, "User Registered Successfully");
+    }).onError((error, stackTrace) {
+      print("ERROR ${error.toString()}");
+      quickAlert(QuickAlertType.error,
+          "Please Enter Signup Details for User Registration");
+    });
   }
 }
