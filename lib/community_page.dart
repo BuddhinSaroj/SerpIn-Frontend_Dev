@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:serpin_mobile_application/capture_image.dart';
 
 class CommunityPage extends StatelessWidget {
   const CommunityPage({Key? key}) : super(key: key);
@@ -40,30 +41,88 @@ class CommunityPage extends StatelessWidget {
             ),
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Community',
-                  style: TextStyle(
-                    color: Color(0xFF12A69D),
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
+                padding: const EdgeInsets.all(10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20.0),
+                    child: Text(
+                      'Community',
+                      style: TextStyle(
+                        color: Color(0xFF12A69D),
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),
               SizedBox(
                 height: 20.0,
               ),
-              Center(
-                child: Container(
-                  width: 350.0,
-                  height: 75.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF12A69D),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
+              Container(
+                width: 350.0,
+                height: 75.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFF12A69D),
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+                child: Row(
+                  children: [
+                    // Left aligned profile picture
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        radius: 25.0,
+                        backgroundImage:
+                            NetworkImage('https://example.com/profile.jpg'),
+                      ),
+                    ),
+                    // Right aligned box with "Start a Post" hint text and image icon
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ImageUpload()),
+                            );
+                          },
+                          child: Container(
+                            width: 260.0,
+                            height: 35,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                // Hint text
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Start a Post',
+                                    style: TextStyle(fontSize: 13.0),
+                                  ),
+                                ),
+                                // Image icon
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Icon(Icons.image),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:serpin_mobile_application/capture_image.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -14,28 +15,28 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   File? image;
-
-  Future captureImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.camera);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      setState(() => this.image = imageTemporary);
-    } on PlatformException catch (e) {
-      print("Failed to capture image: $e");
-    }
-  }
-
-  Future pickImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      setState(() => this.image = imageTemporary);
-    } on PlatformException catch (e) {
-      print("Failed to pick image: $e");
-    }
-  }
+  //
+  // Future captureImage(ImageSource source) async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: ImageSource.camera);
+  //     if (image == null) return;
+  //     final imageTemporary = File(image.path);
+  //     setState(() => this.image = imageTemporary);
+  //   } on PlatformException catch (e) {
+  //     print("Failed to capture image: $e");
+  //   }
+  // }
+  //
+  // Future pickImage(ImageSource source) async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //     if (image == null) return;
+  //     final imageTemporary = File(image.path);
+  //     setState(() => this.image = imageTemporary);
+  //   } on PlatformException catch (e) {
+  //     print("Failed to pick image: $e");
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +189,11 @@ class _HomePage extends State<HomePage> {
                               children: [
                                 IconButton(
                                   onPressed: () {
-                                    captureImage(ImageSource.camera);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ImageUpload()));
                                   },
                                   icon: const Icon(
                                       Icons.add_circle_outline_rounded),
@@ -205,7 +210,7 @@ class _HomePage extends State<HomePage> {
                                 ),
                                 SizedBox(width: 10),
                                 Text(
-                                  "Capture",
+                                  "Capture / Upload",
                                   style: TextStyle(
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold,
@@ -215,32 +220,6 @@ class _HomePage extends State<HomePage> {
                             ),
                           ],
                         ),
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF007770),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        minimumSize: const Size(125.0, 40.0),
-                      ),
-                      onPressed: () {
-                        pickImage(ImageSource.gallery);
-                      },
-                      child: const Text(
-                        'Upload',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                  ],
                 ),
               ],
             ),
