@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:serpin_mobile_application/login_screen.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:serpin_mobile_application/login.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class CreateAccount extends StatefulWidget {
+  const CreateAccount({Key? key}) : super(key: key);
 
   @override
-  _SignUpScreen createState() => _SignUpScreen();
+  _CreateAccount createState() => _CreateAccount();
 }
 
-class _SignUpScreen extends State<SignUpScreen> {
+class _CreateAccount extends State<CreateAccount> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -210,7 +210,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const LoginScreen()),
+                                          Login()),
                                 );
                               },
                               child: const Text(

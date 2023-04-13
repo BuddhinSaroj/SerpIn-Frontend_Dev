@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:serpin_mobile_application/AnimalDetailsScreen.dart';
-import 'package:serpin_mobile_application/animalDetails.dart';
+import 'package:serpin_mobile_application/Model/animalDetails.dart';
 
 class IdentifyList extends StatelessWidget {
   final String animalType;

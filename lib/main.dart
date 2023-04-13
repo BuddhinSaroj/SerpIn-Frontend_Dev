@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:serpin_mobile_application/sign_up_screen.dart';
+import 'package:serpin_mobile_application/cretaeAccount.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'Services/auth_service.dart';
-import 'login_screen.dart';
+import 'package:serpin_mobile_application/login.dart';
 
 // void main() {
 //   runApp(const MaterialApp(
@@ -12,29 +11,29 @@ import 'login_screen.dart';
 //   ));
 // }
 
-// Future main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(const MaterialApp(
-//     home: WelcomeScreen(),
-//   ));
-// }
-
-Future<void> main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GoogleSignInProvider()),
-        // Add any other providers you need
-      ],
-      child: const MaterialApp(
-        home: WelcomeScreen(),
-      ),
-    ),
-  );
+  runApp(const MaterialApp(
+    home: WelcomeScreen(),
+  ));
 }
+
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(
+//     MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(create: (_) => GoogleSignInProvider()),
+//         // Add any other providers you need
+//       ],
+//       child: const MaterialApp(
+//         home: WelcomeScreen(),
+//       ),
+//     ),
+//   );
+// }
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key});
@@ -115,7 +114,8 @@ class WelcomeScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const SignUpScreen()),
+                                    builder: (context) =>
+                                        const CreateAccount()),
                               );
                             },
                             style: ElevatedButton.styleFrom(
@@ -142,8 +142,7 @@ class WelcomeScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LoginScreen()),
+                                        builder: (context) => Login()),
                                   );
                                 },
                                 child: const Text(

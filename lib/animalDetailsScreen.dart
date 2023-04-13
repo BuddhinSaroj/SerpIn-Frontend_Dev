@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:serpin_mobile_application/animalDetails.dart';
+import 'package:serpin_mobile_application/Model/animalDetails.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import 'Utils/colors.dart';

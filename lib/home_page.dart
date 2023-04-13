@@ -5,6 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:serpin_mobile_application/capture_image.dart';
+import 'package:serpin_mobile_application/user_profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -55,7 +56,10 @@ class _HomePage extends State<HomePage> {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => UserProfile()));
+              },
               icon: const Icon(
                 Icons.menu,
                 size: 25,
