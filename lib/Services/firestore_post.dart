@@ -11,7 +11,9 @@ class FirestorePost {
 
   Future<String> uploadPost(String description, Uint8List file, String uId,
       String username, String profImage) async {
-    String res = "Some error occured";
+    print("-----------------------------Tryinggggggggggggggggggg----222");
+
+    String res = "Some error occurred";
 
     try {
       String photoURL =

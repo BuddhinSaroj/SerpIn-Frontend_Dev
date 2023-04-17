@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:serpin_mobile_application/cretaeAccount.dart';
+import 'package:serpin_mobile_application/signUp_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:serpin_mobile_application/login.dart';
+
+import 'Model/google_sign_in.dart';
 
 // void main() {
 //   runApp(const MaterialApp(
@@ -11,29 +13,30 @@ import 'package:serpin_mobile_application/login.dart';
 //   ));
 // }
 
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MaterialApp(
-    home: WelcomeScreen(),
-  ));
-}
-
-// Future<void> main() async {
+// Future main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp();
-//   runApp(
-//     MultiProvider(
-//       providers: [
-//         ChangeNotifierProvider(create: (_) => GoogleSignInProvider()),
-//         // Add any other providers you need
-//       ],
-//       child: const MaterialApp(
-//         home: WelcomeScreen(),
-//       ),
-//     ),
-//   );
+//   runApp(const MaterialApp(
+//     home: WelcomeScreen(),
+//   ));
 // }
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GoogleSignInProvider()),
+        // Add any other providers you need
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: WelcomeScreen(),
+      ),
+    ),
+  );
+}
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key});
@@ -114,8 +117,7 @@ class WelcomeScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const CreateAccount()),
+                                    builder: (context) => const SignUp()),
                               );
                             },
                             style: ElevatedButton.styleFrom(

@@ -30,6 +30,7 @@ class _ImageUploadState extends State<ImageUpload> {
     return _image == null
         ? SafeArea(
             child: Scaffold(
+              extendBody: true,
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0,
@@ -63,11 +64,11 @@ class _ImageUploadState extends State<ImageUpload> {
                           width: w * 0.75,
                           decoration: BoxDecoration(
                               color: Colors.grey.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 BoxShadow(
                                   color: Color(0xFF12A69D),
-                                  blurRadius: 4,
+                                  blurRadius: 2,
                                   offset: Offset(4, 8), // Shadow position
                                 ),
                                 BoxShadow(
@@ -83,8 +84,8 @@ class _ImageUploadState extends State<ImageUpload> {
                                   margin: const EdgeInsets.only(
                                     left: 25,
                                   ),
-                                  height: 40,
-                                  width: 50,
+                                  height: 30,
+                                  width: 40,
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage('assets/cam.png'),
@@ -112,7 +113,7 @@ class _ImageUploadState extends State<ImageUpload> {
                           width: w * 0.75,
                           decoration: BoxDecoration(
                               color: Colors.grey.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 BoxShadow(
                                   color: Color(0xFF12A69D),
@@ -133,13 +134,13 @@ class _ImageUploadState extends State<ImageUpload> {
                                     left: 25,
                                   ),
                                   height: 40,
-                                  width: 55,
+                                  width: 45,
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image:
                                               AssetImage('assets/gallery.png'),
                                           fit: BoxFit.contain))),
-                              SizedBox(width: 20),
+                              SizedBox(width: 15),
                               Text(
                                 "Select via Gallery",
                                 style: TextStyle(

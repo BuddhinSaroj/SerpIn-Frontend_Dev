@@ -48,6 +48,11 @@ dependencies:
   firebase_database: ^10.1.0
   toggle_switch: ^2.0.1
   uuid: 3.0.6
+  curved_navigation_bar: ^1.0.3
+  cached_network_image: ^3.2.3
+  simple_gradient_text: ^1.2.4
+  dialog_flowtter: ^0.3.3
+  gradient_bottom_navigation_bar: ^1.0.0+4
 
 
 
@@ -103,6 +108,7 @@ flutter:
     - assets/splash_img.png
     - assets/cam.png
     - assets/gallery.png
+    - assets/serpin_logo.svg
   #   - images/a_dot_ham.jpeg
 
   fonts:

@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:serpin_mobile_application/capture_image.dart';
-import 'package:serpin_mobile_application/user_profile_page.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:serpin_mobile_application/capture_image_for_identification.dart';
+import 'package:serpin_mobile_application/user_profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -16,40 +16,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   File? image;
-  //
-  // Future captureImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: ImageSource.camera);
-  //     if (image == null) return;
-  //     final imageTemporary = File(image.path);
-  //     setState(() => this.image = imageTemporary);
-  //   } on PlatformException catch (e) {
-  //     print("Failed to capture image: $e");
-  //   }
-  // }
-  //
-  // Future pickImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-  //     if (image == null) return;
-  //     final imageTemporary = File(image.path);
-  //     setState(() => this.image = imageTemporary);
-  //   } on PlatformException catch (e) {
-  //     print("Failed to pick image: $e");
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBody: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              'assets/logo.png',
+            child: SvgPicture.asset(
+              'assets/serpin_logo.svg',
               width: 100,
               height: 26,
             ),
@@ -58,7 +37,7 @@ class _HomePage extends State<HomePage> {
             IconButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => UserProfile()));
+                    MaterialPageRoute(builder: (context) => Profile()));
               },
               icon: const Icon(
                 Icons.menu,
@@ -69,8 +48,6 @@ class _HomePage extends State<HomePage> {
           ],
         ),
         body: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -82,150 +59,153 @@ class _HomePage extends State<HomePage> {
             ),
           ),
           child: SingleChildScrollView(
-            reverse: true,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
-                    child: Text(
-                      "Recent Posts",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0xFF007770),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 270,
-                  width: 350,
-                  decoration: BoxDecoration(
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 4,
-                        offset: Offset(4, 8), // Shadow position
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(20),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFFABFFDC),
-                        Color(0xFFD3FCF8),
-                      ],
-                    ),
-                  ),
-                  child: CarouselSlider(
-                    items: [
-                      _buildPostCard(
-                        imageUrl: 'https://picsum.photos/200',
-                        userProfileImageUrl: 'https://picsum.photos/50',
-                        username: 'John Doe',
-                        daysAgo: '2 days ago',
-                        postDescription:
-                            'This is another description of my post.',
-                      ),
-                      _buildPostCard(
-                        imageUrl: 'https://picsum.photos/201',
-                        userProfileImageUrl: 'https://picsum.photos/51',
-                        username: 'Jane Smith',
-                        daysAgo: '3 days ago',
-                        postDescription:
-                            'This is another description of my post.',
-                      ),
-                    ],
-                    options: CarouselOptions(
-                      height: 200,
-                      viewportFraction: 0.9,
-                      enlargeCenterPage: true,
-                    ),
-                  ),
-                ),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
-                    child: Text(
-                      "Upload or Capture Image",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0xFF007770),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 350,
-                  height: 270,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFFABFFDC), Color(0xFFD3FCF8)],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomCenter,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: Colors.grey,
-                      style: BorderStyle.solid,
-                      width: 2.0,
-                    ),
-                  ),
-                  child: image != null
-                      ? ClipRRect(
-                          child: Image.file(
-                            image!,
-                            width: 300,
-                            height: 220,
-                            fit: BoxFit.fill,
-                          ),
-                        )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                ImageUpload()));
-                                  },
-                                  icon: const Icon(
-                                      Icons.add_circle_outline_rounded),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.camera_alt,
-                                  color: Colors.grey,
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  "Capture / Upload",
-                                  style: TextStyle(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                          ],
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
+                      child: Text(
+                        "Recent Posts",
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Color(0xFF007770),
+                          fontWeight: FontWeight.bold,
                         ),
-                ),
-              ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 270,
+                    width: 350,
+                    decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 4,
+                          offset: Offset(4, 8), // Shadow position
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xFFABFFDC),
+                          Color(0xFFD3FCF8),
+                        ],
+                      ),
+                    ),
+                    child: CarouselSlider(
+                      items: [
+                        _buildPostCard(
+                          imageUrl: 'https://picsum.photos/200',
+                          userProfileImageUrl: 'https://picsum.photos/50',
+                          username: 'John Doe',
+                          daysAgo: '2 days ago',
+                          postDescription:
+                              'This is another description of my post.',
+                        ),
+                        _buildPostCard(
+                          imageUrl: 'https://picsum.photos/201',
+                          userProfileImageUrl: 'https://picsum.photos/51',
+                          username: 'Jane Smith',
+                          daysAgo: '3 days ago',
+                          postDescription:
+                              'This is another description of my post.',
+                        ),
+                      ],
+                      options: CarouselOptions(
+                        height: 200,
+                        viewportFraction: 0.9,
+                        enlargeCenterPage: true,
+                      ),
+                    ),
+                  ),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
+                      child: Text(
+                        "Upload or Capture Image",
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Color(0xFF007770),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 350,
+                    height: 270,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFFABFFDC), Color(0xFFD3FCF8)],
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.grey,
+                        style: BorderStyle.solid,
+                        width: 2.0,
+                      ),
+                    ),
+                    child: image != null
+                        ? ClipRRect(
+                            child: Image.file(
+                              image!,
+                              width: 300,
+                              height: 220,
+                              fit: BoxFit.fill,
+                            ),
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ImageUpload()));
+                                    },
+                                    icon: const Icon(
+                                        Icons.add_circle_outline_rounded),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 20),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Icon(
+                                    Icons.camera_alt,
+                                    color: Colors.grey,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    "Capture / Upload",
+                                    style: TextStyle(
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

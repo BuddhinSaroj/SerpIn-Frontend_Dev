@@ -4,11 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:serpin_mobile_application/post_view.dart';
+import 'package:serpin_mobile_application/user_profile.dart';
 
 import 'Services/firestore_post.dart';
 import 'Utils/utils.dart';
-import 'community_post.dart';
 
 class ForumData extends StatefulWidget {
   const ForumData({Key? key}) : super(key: key);
@@ -28,6 +30,8 @@ class _ForumDataState extends State<ForumData> {
       _isLoading = true;
     });
     try {
+      print("-----------------------------Tryinggggggggggggggggggg----111");
+
       String res = await FirestorePost().uploadPost(
           _descriptionController.text, _file!, uId, username, profImage);
 
@@ -100,62 +104,171 @@ class _ForumDataState extends State<ForumData> {
   Widget build(BuildContext context) {
     return _file == null
         ? Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              elevation: 0,
-              toolbarHeight: 100,
-              title: Column(
-                //Outlined button for adding posts
-                children: [
-                  SizedBox(height: 10),
-                  Container(
-                    padding: EdgeInsets.all(24),
-                    child: dashBorder(
-                      child: TextButton.icon(
-                        label: Text('   Add New Post'),
-                        icon: Icon(Icons.post_add),
-                        style: TextButton.styleFrom(
-                          minimumSize: Size.fromHeight(40),
-                          textStyle: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Raleway',
-                              fontWeight: FontWeight.bold),
-                          primary: Colors.blueGrey[800],
-                          //side: BorderSide(width:0, color: Colors.white),
-                        ),
-                        onPressed: () => _selectImage(context),
+            // body: PostView(),
+            body: SafeArea(
+            child: SingleChildScrollView(
+              child: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFABFFDC),
+                      Color(0xFFFAFEFF),
+                    ],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            'assets/logo.png',
+                            width: 100,
+                            height: 35,
+                          ),
+                          // SvgPicture.asset(
+                          //   'assets/serpin_logo.svg',
+                          //   width: 100,
+                          //   height: 35,
+                          // ),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Profile()));
+                                },
+                                icon: const Icon(
+                                  Icons.menu,
+                                  size: 30,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(),
-                ],
-                //Container for post
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 130),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 12.0, bottom: 8),
+                              child: Container(
+                                width: 350.0,
+                                height: 75.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF12A69D),
+                                  borderRadius: BorderRadius.circular(25.0),
+                                ),
+                                child: Row(
+                                  children: [
+                                    // Left aligned profile picture
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: CircleAvatar(
+                                        radius: 25.0,
+                                        backgroundImage:
+                                            NetworkImage(user.photoURL!),
+                                      ),
+                                    ),
+                                    // Right aligned box with "Start a Post" hint text and image icon
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 8.0),
+                                        child: InkWell(
+                                          onTap: () {
+                                            _selectImage(context);
+                                          },
+                                          child: Container(
+                                            width: 260.0,
+                                            height: 35,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                // Hint text
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    'Start a Post',
+                                                    style: TextStyle(
+                                                        fontSize: 13.0),
+                                                  ),
+                                                ),
+                                                // Image icon
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Icon(Icons.image),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                child: StreamBuilder(
+                                  stream: FirebaseFirestore.instance
+                                      .collection('posts')
+                                      .orderBy('datePublished',
+                                          descending: true)
+                                      .snapshots(),
+                                  builder: (context,
+                                      AsyncSnapshot<
+                                              QuerySnapshot<
+                                                  Map<String, dynamic>>>
+                                          snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    }
+                                    return ListView.builder(
+                                      itemCount: snapshot.data!.docs.length,
+                                      itemBuilder: (context, index) => PostView(
+                                        snap: snapshot.data!.docs[index].data(),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            // body: PostView(),
-            body: StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection('posts')
-                  .orderBy('datePublished', descending: true)
-                  .snapshots(),
-              builder: (context,
-                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-
-                return ListView.builder(
-                  itemCount: snapshot.data!.docs.length,
-                  itemBuilder: (context, index) => PostView(
-                    snap: snapshot.data!.docs[index].data(),
-                  ),
-                );
-              },
-            ),
-          )
+          ))
         : Scaffold(
             appBar: AppBar(
               leading: IconButton(
@@ -168,10 +281,10 @@ class _ForumDataState extends State<ForumData> {
               toolbarHeight: 70,
               flexibleSpace: Container(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [Color(0xFFABFFDC), Color(0xFFFAFEFF)],
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft)),
+                    gradient: LinearGradient(colors: [
+                  Color(0xFFABFFDC),
+                  Color(0xFFFAFEFF),
+                ], begin: Alignment.topRight, end: Alignment.bottomLeft)),
               ),
             ),
             body: SingleChildScrollView(
@@ -216,10 +329,11 @@ class _ForumDataState extends State<ForumData> {
                   ElevatedButton(
                     child: Text('Submit'),
                     style: ElevatedButton.styleFrom(
-                        minimumSize: Size(180, 50),
-                        textStyle:
-                            TextStyle(fontSize: 24, fontFamily: 'Klasik'),
-                        primary: Colors.green),
+                      minimumSize: Size(180, 50),
+                      textStyle: TextStyle(fontSize: 24, fontFamily: 'Klasik'),
+                      primary: Colors.green,
+                      // onPrimary: kScaffoldBackground,
+                    ),
                     onPressed: () =>
                         postImage(user.uid, user.displayName!, user.photoURL!),
                   ),

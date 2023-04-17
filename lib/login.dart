@@ -1,19 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:serpin_mobile_application/community_page.dart';
+import 'package:provider/provider.dart';
+import 'package:serpin_mobile_application/body_forum.dart';
+import 'package:serpin_mobile_application/capture_image_for_identification.dart';
+import 'package:serpin_mobile_application/help_page.dart';
 import 'package:serpin_mobile_application/home_page.dart';
-import 'package:serpin_mobile_application/cretaeAccount.dart';
-import 'package:serpin_mobile_application/timeline.dart';
-
+import 'package:serpin_mobile_application/signUp_screen.dart';
+import 'package:serpin_mobile_application/user_profile.dart';
 import 'forgot_password.dart';
-import 'helpPage.dart';
 
 final GoogleSignIn googleSignIn = GoogleSignIn();
-final userRef = FirebaseFirestore.instance.collection("users");
+Reference storageRef = FirebaseStorage.instance.ref();
+final usersRef = FirebaseFirestore.instance.collection('users');
+final postRef = FirebaseFirestore.instance.collection('posts');
+final DateTime timestamp = DateTime.now();
 
 class Login extends StatefulWidget {
   @override
@@ -23,10 +27,11 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool isAuth = false;
   late PageController pageController;
-  int pageIndex = 1;
+  int currentIndex = 2;
 
   @override
   void initState() {
+    logout();
     super.initState();
     pageController = PageController(initialPage: 1);
     googleSignIn.onCurrentUserChanged.listen((account) {
@@ -35,16 +40,16 @@ class _LoginState extends State<Login> {
       print("Error signing in: $err");
     });
     //ReAuthenticate user when app is opened
-    googleSignIn.signInSilently(suppressErrors: false).then((account) {
-      handleSignIn(account!);
-    }).catchError((err) {
-      print("Error signing in: $err");
-    });
+    // googleSignIn.signInSilently(suppressErrors: false).then((account) {
+    //   handleSignIn(account!);
+    // }).catchError((err) {
+    //   print("Error signing in: $err");
+    // });
   }
 
   handleSignIn(GoogleSignInAccount account) {
     if (account != null) {
-      createUserInFirestore();
+      //createUserInFirestore();
       print("User Signed in!: $account");
       setState(() {
         isAuth = true;
@@ -60,21 +65,6 @@ class _LoginState extends State<Login> {
   void dispose() {
     pageController.dispose();
     super.dispose();
-  }
-
-  createUserInFirestore() async {
-    //1) check if user exist in users collection database according to id
-    final GoogleSignInAccount? user = googleSignIn.currentUser;
-    final DocumentSnapshot doc = await usersRef.doc(user?.id).get();
-
-    //2) if the user doesn't exist, then we want to take the create account page
-    if (!doc.exists) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => CreateAccount()),
-      );
-    }
-    //3) get username from create account, use it to make new user document in users collection.
   }
 
   Future login() async {
@@ -101,49 +91,69 @@ class _LoginState extends State<Login> {
     googleSignIn.signOut();
   }
 
-  onPageChanged(int pageIndex) {
+  onPageChanged(int currentIndex) {
     setState(() {
-      this.pageIndex = pageIndex;
+      this.currentIndex = currentIndex;
     });
   }
 
-  onTap(int pageIndex) {
+  onTap(int currentIndex) {
     pageController.animateToPage(
-      pageIndex,
+      currentIndex,
       duration: Duration(milliseconds: 200),
       curve: Curves.easeInOut,
     );
   }
 
+  final screens = [
+    //CommunityPage(),
+    ForumData(),
+    HomePage(),
+    ImageUpload(),
+    //Profile()
+    HelpScreen()
+  ];
+
   Scaffold buildAuthScreen() {
     return Scaffold(
-      body: PageView(
-        children: <Widget>[
-          Timeline(),
-          HomePage(),
-          HelpPage(),
-        ],
-        controller: pageController,
-        onPageChanged: onPageChanged,
-        physics: NeverScrollableScrollPhysics(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: pageIndex,
-        onTap: onTap,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people_alt),
-            label: "Community",
+      body: screens[currentIndex],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFFAFEFF), Color(0xFFABFFDC)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
+        ),
+        child: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.people_alt_outlined),
+                label: "Timeline",
+                backgroundColor: Colors.transparent),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined),
+                label: 'Home',
+                backgroundColor: Colors.transparent),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.camera_alt_outlined),
+                label: 'Camera',
+                backgroundColor: Colors.transparent),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.help_outline_rounded),
+                label: 'Profile',
+                backgroundColor: Colors.transparent),
+          ],
+          elevation: 0,
+          currentIndex: currentIndex,
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.black,
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.normal,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.help),
-            label: "Help",
-          )
-        ],
+          onTap: (index) => setState(() => currentIndex = index),
+          backgroundColor: Colors.greenAccent,
+        ),
       ),
     );
   }
@@ -305,9 +315,15 @@ class _LoginState extends State<Login> {
                   ),
                   const SizedBox(height: 10.0),
                   ElevatedButton(
-                    onPressed: () async {
-                      login();
-                    },
+                    // onPressed: () async {
+                    //   final provider = Provider.of<GoogleSignInProvider>(
+                    //       context,
+                    //       listen: false);
+                    //   provider.googleLogin();
+                    //   Navigator.pop(context);
+                    // },
+
+                    onPressed: login,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -355,7 +371,7 @@ class _LoginState extends State<Login> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const CreateAccount()),
+                                  builder: (context) => const SignUp()),
                             );
                           },
                           child: const Text(

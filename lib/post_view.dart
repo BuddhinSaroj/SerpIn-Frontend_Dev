@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:serpin_mobile_application/Utils/utils.dart';
-import 'package:serpin_mobile_application/login.dart';
+
+import '../utils/utils.dart';
+import 'Model/commentScreen.dart';
 
 class PostView extends StatefulWidget {
   final snap;
@@ -89,8 +90,10 @@ class _PostViewState extends State<PostView> {
             children: [
               IconButton(onPressed: () {}, icon: const Icon(Icons.thumb_up)),
               IconButton(
-                  onPressed: () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Login())),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CommentsScreen(
+                            snap: widget.snap,
+                          ))),
                   icon: const Icon(Icons.add_comment)),
             ],
           ),
@@ -121,8 +124,10 @@ class _PostViewState extends State<PostView> {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Login())),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CommentsScreen(
+                            snap: widget.snap,
+                          ))),
                   child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Text('View all $commentLength comments',

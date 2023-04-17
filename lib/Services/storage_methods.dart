@@ -12,19 +12,24 @@ class StorageMethods {
   Future<String> uploadImageToStorage(
       String childName, Uint8List file, bool isPost) async {
     // creating location to our firebase storage
-
+    print("-----------------------------Tryinggggggggggggggggggg----333");
     Reference ref =
         _storage.ref().child(childName).child(_auth.currentUser!.uid);
     if (isPost) {
       String id = const Uuid().v1();
       ref = ref.child(id);
     }
-
+    print("-----------------------------Tryinggggggggggggggggggg----444");
     // putting in uint8list format -> Upload task like a future but not future
     UploadTask uploadTask = ref.putData(file);
 
+    print("-----------------------------Tryinggggggggggggggggggg----555");
     TaskSnapshot snapshot = await uploadTask;
+    print(snapshot);
     String downloadUrl = await snapshot.ref.getDownloadURL();
+
+    print(downloadUrl);
+    print("-----------------------------Tryinggggggggggggggggggg----666");
     return downloadUrl;
   }
 }
