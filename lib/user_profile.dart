@@ -29,16 +29,19 @@ class Profile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset(
-                      'assets/logo.png',
-                      width: 100,
-                      height: 30,
-                    ),
-                  ],
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(
+                        'assets/logo.png',
+                        width: 80,
+                        height: 30,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(

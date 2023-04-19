@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:serpin_mobile_application/Utils/colors.dart';
 import 'package:serpin_mobile_application/post_view.dart';
 import 'package:serpin_mobile_application/user_profile.dart';
 
@@ -120,39 +120,37 @@ class _ForumDataState extends State<ForumData> {
                 ),
                 child: Column(
                   children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset(
-                            'assets/logo.png',
-                            width: 100,
-                            height: 35,
-                          ),
-                          // SvgPicture.asset(
-                          //   'assets/serpin_logo.svg',
-                          //   width: 100,
-                          //   height: 35,
-                          // ),
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: IconButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Profile()));
-                                },
-                                icon: const Icon(
-                                  Icons.menu,
-                                  size: 30,
-                                  color: Colors.black,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(
+                              'assets/logo.png',
+                              width: 80,
+                              height: 30,
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Profile()));
+                                  },
+                                  icon: const Icon(
+                                    Icons.menu,
+                                    size: 30,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     Container(
@@ -275,7 +273,8 @@ class _ForumDataState extends State<ForumData> {
                 icon: const Icon(Icons.arrow_back),
                 onPressed: clearImage,
               ),
-              title: const Text('Post to Forum'),
+              title: const Text('Post to Forum',
+                  style: TextStyle(color: profiletxt)),
               centerTitle: false,
               backgroundColor: Colors.transparent,
               toolbarHeight: 70,
@@ -284,7 +283,7 @@ class _ForumDataState extends State<ForumData> {
                     gradient: LinearGradient(colors: [
                   Color(0xFFABFFDC),
                   Color(0xFFFAFEFF),
-                ], begin: Alignment.topRight, end: Alignment.bottomLeft)),
+                ], begin: Alignment.bottomLeft, end: Alignment.topRight)),
               ),
             ),
             body: SingleChildScrollView(
@@ -331,7 +330,7 @@ class _ForumDataState extends State<ForumData> {
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(180, 50),
                       textStyle: TextStyle(fontSize: 24, fontFamily: 'Klasik'),
-                      primary: Colors.green,
+                      primary: profiletxt,
                       // onPrimary: kScaffoldBackground,
                     ),
                     onPressed: () =>

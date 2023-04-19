@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../Services/firestore_post.dart';
 import '../Utils/colors.dart';
-import '../commentView.dart';
+import '../comment_list_view.dart';
 
 class CommentsScreen extends StatefulWidget {
   final snap;
@@ -15,9 +15,7 @@ class CommentsScreen extends StatefulWidget {
 }
 
 class _CommentsScreenState extends State<CommentsScreen> {
-
   final TextEditingController _commentController = TextEditingController();
-
 
   @override
   void dispose() {
@@ -31,16 +29,18 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Comments'),
+        title: const Text(
+          'Comments',
+          style: TextStyle(color: profiletxt),
+        ),
         centerTitle: false,
         backgroundColor: Colors.transparent,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Color(0xFFABFFDC),
-                    Color(0xFFFAFEFF),],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft)),
+              gradient: LinearGradient(colors: [
+            Color(0xFFABFFDC),
+            Color(0xFFFAFEFF),
+          ], begin: Alignment.bottomLeft, end: Alignment.topRight)),
         ),
       ),
       // body: CommentView(),
@@ -51,8 +51,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
               .collection('comments')
               .orderBy('datePublished', descending: true)
               .snapshots(),
-          builder: (context, snapshot){
-            if(snapshot.connectionState == ConnectionState.waiting){
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
@@ -64,9 +64,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 snap: (snapshot.data! as dynamic).docs[index].data(),
               ),
             );
-          }
-      ),
-
+          }),
 
       bottomNavigationBar: SafeArea(
         child: Container(
@@ -76,7 +74,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
           ),
           decoration: BoxDecoration(
               color: Colors.white,
-              border: Border(top: BorderSide(color: Colors.grey[300]!, width: 1))),
+              border:
+                  Border(top: BorderSide(color: Colors.grey[300]!, width: 1))),
           padding: const EdgeInsets.only(left: 16, right: 8),
           child: Row(
             children: [
@@ -109,10 +108,13 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 },
                 child: Container(
                   padding:
-                  const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                   child: const Text(
                     'Post',
-                    style: TextStyle(color: kPrimaryColor, fontSize:16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: kPrimaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

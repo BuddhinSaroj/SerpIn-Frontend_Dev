@@ -96,7 +96,6 @@ flutter:
     - assets/icons/
     - assets/snakes/
     - assets/logo.svg
-    - assets/logo.png
     - assets/signup.svg
     - assets/google_logo.png
     - assets/login_screen.svg
@@ -109,6 +108,10 @@ flutter:
     - assets/cam.png
     - assets/gallery.png
     - assets/serpin_logo.svg
+    - assets/help.svg
+    - assets/home_id.png
+    - assets/not_found.svg
+    - assets/logo.png
   #   - images/a_dot_ham.jpeg
 
   fonts:

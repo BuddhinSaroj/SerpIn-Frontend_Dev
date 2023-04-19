@@ -51,8 +51,8 @@ class WelcomeScreen extends StatelessWidget {
           elevation: 0,
           title: Image.asset(
             'assets/logo.png',
-            width: 98,
-            height: 25,
+            width: 80,
+            height: 30,
           ),
         ),
         body: Container(

@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
+import 'package:serpin_mobile_application/user_profile.dart';
 
+import 'Utils/colors.dart';
 import 'identified_list.dart';
 
 class ImageUpload extends StatefulWidget {
@@ -161,83 +163,137 @@ class _ImageUploadState extends State<ImageUpload> {
             ),
           )
         : Scaffold(
-            backgroundColor: Colors.black,
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  //SizedBox(height: 5),
-                  //_isLoading ? const LinearProgressIndicator() : const Padding(padding: EdgeInsets.only(top:0)),
-                  SizedBox(height: 110),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: dashBorder(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.6,
-                        //margin: const EdgeInsets.only(left: 20, right: 20),
-                        decoration: BoxDecoration(
-                            //color: Colors.red,
-                            image: DecorationImage(image: FileImage(_image!))),
-                      ),
-                    ),
+            body: SafeArea(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFABFFDC),
+                      Color(0xFFFAFEFF),
+                    ],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
                   ),
-                  SizedBox(height: 60),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
-                      ElevatedButton(
-                        onPressed: () => {Navigator.pop(context)},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          //minimumSize: const Size(360.0, 55.0),
-                          side: const BorderSide(
-                            color: Colors.black,
-                          ),
-                        ),
-                        child: const Text(
-                          'Close',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
+                      Padding(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                'assets/logo.png',
+                                width: 100,
+                                height: 35,
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Profile()));
+                                    },
+                                    icon: const Icon(
+                                      Icons.menu,
+                                      size: 30,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(width: 40),
-                      ElevatedButton(
-                        onPressed: () async {
-                          pred = await uploadImage();
-                          // decoded = jsonDecode(pred);
-                          // animalType = decoded['prediction'];
+                      SizedBox(height: 100),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: dashBorder(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height * 0.5,
+                            //margin: const EdgeInsets.only(left: 20, right: 20),
+                            decoration: BoxDecoration(
+                                //color: Colors.red,
+                                image:
+                                    DecorationImage(image: FileImage(_image!))),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 60),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ImageUpload()),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                //minimumSize: const Size(360.0, 55.0),
+                                side: const BorderSide(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              child: const Text(
+                                'Close',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 40),
+                            ElevatedButton(
+                              onPressed: () async {
+                                pred = await uploadImage();
+                                // decoded = jsonDecode(pred);
+                                // animalType = decoded['prediction'];
 
-                          decoded = (pred);
-                          animalType = pred;
-                          await loadListPage();
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          //minimumSize: const Size(360.0, 55.0),
-                          side: const BorderSide(
-                            color: Colors.black,
-                          ),
-                        ),
-                        child: const Text(
-                          'Process',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                          ),
+                                decoded = (pred);
+                                animalType = pred;
+                                await loadListPage();
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: profiletxt,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                //minimumSize: const Size(360.0, 55.0),
+                                side: const BorderSide(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              child: const Text(
+                                'Process',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+                      // Text("$disease", style: TextStyle(fontSize: 20, color: Colors.white,),)
                     ],
                   ),
-                  // Text("$disease", style: TextStyle(fontSize: 20, color: Colors.white,),)
-                ],
+                ),
               ),
             ),
           );
@@ -289,7 +345,7 @@ class _ImageUploadState extends State<ImageUpload> {
     // setState(() {});
 
     //return res.body;
-    return "Common krait 1";
+    return "Common krait ";
   }
 
   loadListPage() async {
