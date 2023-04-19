@@ -22,3 +22,4 @@ const Color loginColor = Color(0xFF36454F);
 const Color blackBg = Color(0xFF16161d);
 
 const Color profiletxt = Color(0xFF007770);
+const Color hometxt = Color(0xFF12A69D);

@@ -1,54 +1,29 @@
-import 'dart:io';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:serpin_mobile_application/capture_image_for_identification.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:serpin_mobile_application/user_profile.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key});
+import 'Utils/colors.dart';
+import 'capture_image_for_identification.dart';
 
-  @override
-  _HomePage createState() => _HomePage();
-}
+class HomePage extends StatelessWidget {
+  final User user = FirebaseAuth.instance.currentUser!;
 
-class _HomePage extends State<HomePage> {
-  File? image;
+  String getGreeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return "Good Morning";
+    } else if (hour < 17) {
+      return "Good Afternoon";
+    } else {
+      return "Good Evening";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        extendBody: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SvgPicture.asset(
-              'assets/serpin_logo.svg',
-              width: 100,
-              height: 26,
-            ),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Profile()));
-              },
-              icon: const Icon(
-                Icons.menu,
-                size: 25,
-                color: Colors.black,
-              ),
-            ),
-          ],
-        ),
-        body: Container(
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -59,237 +34,201 @@ class _HomePage extends State<HomePage> {
               end: Alignment.topRight,
             ),
           ),
-          child: SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
-                      child: Text(
-                        "Recent Posts",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Color(0xFF007770),
-                          fontWeight: FontWeight.bold,
-                        ),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 10, right: 10),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(
+                        'assets/logo.png',
+                        width: 80,
+                        height: 30,
                       ),
-                    ),
-                  ),
-                  Container(
-                    height: 270,
-                    width: 350,
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 4,
-                          offset: Offset(4, 8), // Shadow position
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xFFABFFDC),
-                          Color(0xFFD3FCF8),
-                        ],
-                      ),
-                    ),
-                    child: CarouselSlider(
-                      items: [
-                        _buildPostCard(
-                          imageUrl: 'https://picsum.photos/200',
-                          userProfileImageUrl: 'https://picsum.photos/50',
-                          username: 'John Doe',
-                          daysAgo: '2 days ago',
-                          postDescription:
-                              'This is another description of my post.',
-                        ),
-                        _buildPostCard(
-                          imageUrl: 'https://picsum.photos/201',
-                          userProfileImageUrl: 'https://picsum.photos/51',
-                          username: 'Jane Smith',
-                          daysAgo: '3 days ago',
-                          postDescription:
-                              'This is another description of my post.',
-                        ),
-                      ],
-                      options: CarouselOptions(
-                        height: 200,
-                        viewportFraction: 0.9,
-                        enlargeCenterPage: true,
-                      ),
-                    ),
-                  ),
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 15.0, left: 25, bottom: 15),
-                      child: Text(
-                        "Upload or Capture Image",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Color(0xFF007770),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 350,
-                    height: 270,
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFFABFFDC), Color(0xFFD3FCF8)],
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomCenter,
-                      ),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: Colors.grey,
-                        style: BorderStyle.solid,
-                        width: 2.0,
-                      ),
-                    ),
-                    child: image != null
-                        ? ClipRRect(
-                            child: Image.file(
-                              image!,
-                              width: 300,
-                              height: 220,
-                              fit: BoxFit.fill,
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Profile()));
+                            },
+                            icon: const Icon(
+                              Icons.menu,
+                              size: 30,
+                              color: Colors.black,
                             ),
-                          )
-                        : Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Column(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ImageUpload()));
-                                    },
-                                    icon: const Icon(
-                                        Icons.add_circle_outline_rounded),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 20),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Icon(
-                                    Icons.camera_alt,
-                                    color: Colors.grey,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    "Capture / Upload",
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey),
-                                  ),
-                                ],
-                              ),
-                            ],
                           ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPostCard({
-    required String imageUrl,
-    required String userProfileImageUrl,
-    required String username,
-    required String daysAgo,
-    required String postDescription,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.all(2.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(userProfileImageUrl),
                 ),
-                const SizedBox(width: 8),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 30.0, left: 20),
+                child: Row(
                   children: [
-                    Text(
-                      username,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                          color: Colors.black),
+                    SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            "Hello ${user?.displayName ?? 'User'}...",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          getGreeting(),
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: hometxt,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      daysAgo,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                          color: Color(0xFF259287)),
+                    Padding(
+                      padding: EdgeInsets.only(left: 120, right: 10),
+                      child: CircleAvatar(
+                        radius: 30.0,
+                        backgroundImage: NetworkImage(user.photoURL ?? ''),
+                      ),
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10.0),
-            child: SizedBox(
-              height: 120,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      imageUrl,
-                      width: 90,
-                      height: 120,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      postDescription,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                      ),
-                      maxLines: 5,
-                    ),
-                  ),
-                ],
               ),
-            ),
+              Padding(
+                padding: EdgeInsets.only(top: 30, bottom: 10),
+                child: Container(
+                  height: 220,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 370,
+                        margin: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: AssetImage(
+                                "assets/home_image_${index + 1}.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              Container(
+                height: 150,
+                width: 350,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(5,
+                          5), // changes the shadow direction, in this case, it's down by 3 pixels
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFFABFFDC), Color(0xFFFAFEFF)],
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Upload or Capture Image",
+                      style: TextStyle(
+                          fontSize: 24,
+                          color: profiletxt,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 20),
+                    Column(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ImageUpload()),
+                            );
+                          },
+                          icon: Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: profiletxt, // set desired background color
+                              shape: BoxShape.circle,
+                            ),
+                            child: Padding(
+                              padding:
+                                  EdgeInsets.all(0.0), // set desired padding
+                              child: Icon(
+                                Icons.add_circle_outline_rounded,
+                                size: 32.0, // set desired icon size
+                                color: Colors.white, // set desired icon color
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(35),
+                  color: Color(0xFF007770),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.asset("assets/first_aid.png"),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      flex: 4,
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 16),
+                        child: Text(
+                          "First-Aid",
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

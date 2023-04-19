@@ -4,14 +4,11 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:provider/provider.dart';
 import 'package:serpin_mobile_application/body_forum.dart';
-import 'package:serpin_mobile_application/capture_image_for_identification.dart';
 import 'package:serpin_mobile_application/help_page.dart';
-import 'package:serpin_mobile_application/home_page.dart';
 import 'package:serpin_mobile_application/signUp_screen.dart';
-import 'package:serpin_mobile_application/user_profile.dart';
 import 'forgot_password.dart';
+import 'home_page.dart';
 
 final GoogleSignIn googleSignIn = GoogleSignIn();
 Reference storageRef = FirebaseStorage.instance.ref();
@@ -27,7 +24,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool isAuth = false;
   late PageController pageController;
-  int currentIndex = 2;
+  int currentIndex = 1;
 
   @override
   void initState() {
@@ -105,14 +102,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  final screens = [
-    //CommunityPage(),
-    ForumData(),
-    HomePage(),
-    ImageUpload(),
-    //Profile()
-    HelpScreen()
-  ];
+  final screens = [ForumData(), HomePage(), HelpScreen()];
 
   Scaffold buildAuthScreen() {
     return Scaffold(
@@ -128,21 +118,17 @@ class _LoginState extends State<Login> {
         child: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.people_alt_outlined),
-                label: "Timeline",
-                backgroundColor: Colors.transparent),
+              icon: Icon(Icons.people_alt_outlined),
+              label: "Timeline",
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-                backgroundColor: Colors.transparent),
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.camera_alt_outlined),
-                label: 'Camera',
-                backgroundColor: Colors.transparent),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.help_outline_rounded),
-                label: 'Profile',
-                backgroundColor: Colors.transparent),
+              icon: Icon(Icons.help_outline_rounded),
+              label: 'Profile',
+            ),
           ],
           elevation: 0,
           currentIndex: currentIndex,
@@ -151,8 +137,9 @@ class _LoginState extends State<Login> {
           selectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.normal,
           ),
+          backgroundColor:
+              Colors.transparent, // set background color to transparent
           onTap: (index) => setState(() => currentIndex = index),
-          backgroundColor: Colors.greenAccent,
         ),
       ),
     );

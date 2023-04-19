@@ -53,6 +53,7 @@ dependencies:
   simple_gradient_text: ^1.2.4
   dialog_flowtter: ^0.3.3
   gradient_bottom_navigation_bar: ^1.0.0+4
+  http: ^0.13.5
 
 
 
@@ -112,6 +113,10 @@ flutter:
     - assets/home_id.png
     - assets/not_found.svg
     - assets/logo.png
+    - assets/home_image_1.jpg
+    - assets/home_image_2.jpg
+    - assets/home_image_3.jpg
+    - assets/first_aid.png
   #   - images/a_dot_ham.jpeg
 
   fonts:

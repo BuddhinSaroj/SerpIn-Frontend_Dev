@@ -32,20 +32,6 @@ class _ImageUploadState extends State<ImageUpload> {
     return _image == null
         ? SafeArea(
             child: Scaffold(
-              extendBody: true,
-              appBar: AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                leading: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    'assets/logo.png',
-                    width: 100,
-                    height: 26,
-                  ),
-                ),
-              ),
-              // body: PostView(),
               body: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -56,53 +42,88 @@ class _ImageUploadState extends State<ImageUpload> {
                 ),
                 child: Center(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                        onTap: () => pickImageFile(ImageSource.camera),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10, right: 10),
                         child: Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          height: h * 0.1,
-                          width: w * 0.75,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xFF12A69D),
-                                  blurRadius: 2,
-                                  offset: Offset(4, 8), // Shadow position
-                                ),
-                                BoxShadow(
-                                  color: Colors.white,
-                                  spreadRadius: 1,
-                                  blurRadius: 8,
-                                  offset: Offset(-4, -4),
-                                ),
-                              ]),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 25,
+                              Image.asset(
+                                'assets/logo.png',
+                                width: 80,
+                                height: 30,
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Profile()));
+                                    },
+                                    icon: const Icon(
+                                      Icons.menu,
+                                      size: 30,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                  height: 30,
-                                  width: 40,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage('assets/cam.png'),
-                                          fit: BoxFit.contain))),
-                              SizedBox(width: 20),
-                              Text(
-                                "Capture via Camera",
-                                style: TextStyle(
-                                  color: Color(0xFF575E67),
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
                                 ),
-                                textAlign: TextAlign.center,
                               ),
                             ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 200),
+                        child: GestureDetector(
+                          onTap: () => pickImageFile(ImageSource.camera),
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            height: h * 0.1,
+                            width: w * 0.75,
+                            decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0xFF12A69D),
+                                    blurRadius: 2,
+                                    offset: Offset(4, 8), // Shadow position
+                                  ),
+                                  BoxShadow(
+                                    color: Colors.white,
+                                    spreadRadius: 1,
+                                    blurRadius: 8,
+                                    offset: Offset(-4, -4),
+                                  ),
+                                ]),
+                            child: Row(
+                              children: [
+                                Container(
+                                    margin: const EdgeInsets.only(
+                                      left: 25,
+                                    ),
+                                    height: 30,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage('assets/cam.png'),
+                                            fit: BoxFit.contain))),
+                                SizedBox(width: 20),
+                                Text(
+                                  "Capture via Camera",
+                                  style: TextStyle(
+                                    color: Color(0xFF575E67),
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -261,12 +282,9 @@ class _ImageUploadState extends State<ImageUpload> {
                             SizedBox(width: 40),
                             ElevatedButton(
                               onPressed: () async {
-                                pred = await uploadImage();
-                                // decoded = jsonDecode(pred);
-                                // animalType = decoded['prediction'];
-
-                                decoded = (pred);
-                                animalType = pred;
+                                pred = await uploadImage(_image!);
+                                decoded = jsonDecode(pred);
+                                animalType = decoded['prediction'];
                                 await loadListPage();
                               },
                               style: ElevatedButton.styleFrom(
@@ -327,25 +345,40 @@ class _ImageUploadState extends State<ImageUpload> {
     }
   }
 
-//https://fea0-112-135-66-179.ap.ngrok.io/predict
-//http://10.0.2.2:4000/predict
+  // Future<String> uploadImage() async {
 
-  uploadImage() async {
-    // final response = http.MultipartRequest(
-    //     "POST", Uri.parse("http://10.0.2.2:4000/predict"));
-    //
-    // final headers = {"Content-Type": "multipart/form-data"};
-    //
-    // response.files.add(http.MultipartFile(
-    //     'file', _image!.readAsBytes().asStream(), _image!.lengthSync(),
-    //     filename: _image!.path.split("/").last));
-    // response.headers.addAll(headers);
-    // final reqResponse = await response.send();
-    // http.Response res = await http.Response.fromStream(reqResponse);
-    // setState(() {});
+  //   final response = await http.MultipartRequest("POST",Uri.parse("http://127.0.0.1:4000/predict")); // Create a MultipartRequest with POST method and URL
+  //   final headers = {"Content-Type": "multipart/form-data"}; // Set headers
+  //
+  //   response.files.add(http.MultipartFile('file', _image!.readAsBytes().asStream(), _image!.lengthSync(),filename: _image!.path.split("/").last)); // Add the image file to the request
+  //   response.headers.addAll(headers); // Add headers to the request
+  //   final reqResponse = await response.send(); // Send the request and get the response
+  //   http.Response res = await http.Response.fromStream(reqResponse); // Convert the response to http.Response
+  //   setState(() {}); // Update the state, if needed
+  //
+  //   return res.body; // Return the response body as a string
+  // }
 
-    //return res.body;
-    return "Common krait ";
+  Future<String?> uploadImage(File imageFile) async {
+    var request = http.MultipartRequest(
+        'POST', Uri.parse('http://127.0.0.1:4000/predict'));
+
+    // Add the image file to the request
+    request.files
+        .add(await http.MultipartFile.fromPath('file', imageFile.path));
+    print(request);
+    var response = await request.send();
+
+    if (response.statusCode == 200) {
+      // Decode the response body from bytes to string
+      print("Status 200");
+      String responseBody = await response.stream.bytesToString();
+      print('Response: $responseBody');
+      return responseBody;
+    } else {
+      print('Failed to upload image');
+      return null;
+    }
   }
 
   loadListPage() async {

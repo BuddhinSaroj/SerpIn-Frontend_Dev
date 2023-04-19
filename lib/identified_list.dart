@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:serpin_mobile_application/AnimalDetailsScreen.dart';
+import 'package:serpin_mobile_application/animal_details_view.dart';
 import 'package:serpin_mobile_application/Model/animalDetails.dart';
 import 'package:serpin_mobile_application/user_profile.dart';
 
@@ -102,7 +102,6 @@ class IdentifyList extends StatelessWidget {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image: AssetImage("assets/home_id.png"),
-                      //fit: BoxFit.cover
                     )),
                   ),
                   onTap: () =>
@@ -224,13 +223,13 @@ class IdentifyList extends StatelessWidget {
 
   checkAnimalType() {
     print("Animal Type Checked");
-    if (animalType == "Common krait 1") {
+    if (animalType == "Bungarus_Caeruleus") {
       pItem = snakeList[0];
-    } else if (animalType == "Common krait") {
+    } else if (animalType == "Daboia_Russelii") {
+      pItem = snakeList[1];
+    } else if (animalType == "Echis_Carinatus") {
       pItem = snakeList[1];
     }
-    //else if (disease == "Bell Pepper Leaf Spot") {
-    //   pItem = chiliList[1];
     // } else if (disease == "Bollworm") {
     //   pItem = pestList[2];
     // } else if (disease == "Chilli Leaf Spot") {
