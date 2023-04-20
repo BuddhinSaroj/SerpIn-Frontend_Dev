@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'Model/google_sign_in.dart';
 import 'Utils/colors.dart';
 import 'Utils/utils.dart';
 import 'login.dart';
@@ -69,7 +70,7 @@ class Profile extends StatelessWidget {
                         user.displayName ?? '',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 24.0,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -79,7 +80,7 @@ class Profile extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           top: 8.0, bottom: 8.0, right: 25),
                       child: CircleAvatar(
-                        radius: 50.0,
+                        radius: 40.0,
                         backgroundImage: NetworkImage(user.photoURL ?? ''),
                       ),
                     ),
@@ -204,6 +205,9 @@ class Profile extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
+                    final provider = Provider.of<GoogleSignInProvider>(context,
+                        listen: false);
+                    provider.logout();
                     showSnackbar('Logout Success', context);
                     Timer(Duration(seconds: 1), () {
                       Navigator.push(context,

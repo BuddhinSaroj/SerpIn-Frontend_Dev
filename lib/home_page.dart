@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:serpin_mobile_application/user_profile.dart';
 
 import 'Utils/colors.dart';
@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 30.0, left: 20),
+                margin: const EdgeInsets.only(top: 30.0, left: 15),
                 child: Row(
                   children: [
                     SizedBox(width: 10),
@@ -80,10 +80,10 @@ class HomePage extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(bottom: 10),
                           child: Text(
-                            "Hello ${user?.displayName ?? 'User'}...",
+                            "Hello ${user?.displayName ?? 'User'}",
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 14.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -91,17 +91,29 @@ class HomePage extends StatelessWidget {
                         Text(
                           getGreeting(),
                           style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 18,
                               color: hometxt,
                               fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 120, right: 10),
-                      child: CircleAvatar(
-                        radius: 30.0,
-                        backgroundImage: NetworkImage(user.photoURL ?? ''),
+                    Container(
+                      margin: EdgeInsets.only(left: 40),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 50, right: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                                color: profiletxt,
+                                width:
+                                    2.0), // set desired border color and width
+                          ),
+                          child: CircleAvatar(
+                            radius: 30.0,
+                            backgroundImage: NetworkImage(user?.photoURL ?? ''),
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -132,7 +144,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 150,
+                height: 250,
                 width: 350,
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -161,29 +173,29 @@ class HomePage extends StatelessWidget {
                           color: profiletxt,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 40),
                     Column(
                       children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ImageUpload()),
-                            );
-                          },
-                          icon: Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: profiletxt, // set desired background color
-                              shape: BoxShape.circle,
-                            ),
-                            child: Padding(
+                        Container(
+                          width: 70,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(35),
+                            color: Color(0xFF007770),
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ImageUpload()),
+                              );
+                            },
+                            icon: Padding(
                               padding:
                                   EdgeInsets.all(0.0), // set desired padding
                               child: Icon(
-                                Icons.add_circle_outline_rounded,
+                                Icons.camera_alt_outlined,
                                 size: 32.0, // set desired icon size
                                 color: Colors.white, // set desired icon color
                               ),
@@ -195,37 +207,37 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.all(16),
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(35),
-                  color: Color(0xFF007770),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Image.asset("assets/first_aid.png"),
-                    ),
-                    SizedBox(width: 16),
-                    Expanded(
-                      flex: 4,
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
-                          "First-Aid",
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   margin: EdgeInsets.all(16),
+              //   padding: EdgeInsets.all(16),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(35),
+              //     color: Color(0xFF007770),
+              //   ),
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         flex: 1,
+              //         child: Image.asset("assets/first_aid.png"),
+              //       ),
+              //       SizedBox(width: 16),
+              //       Expanded(
+              //         flex: 4,
+              //         child: Container(
+              //           margin: EdgeInsets.symmetric(horizontal: 16),
+              //           child: Text(
+              //             "First-Aid",
+              //             textAlign: TextAlign.right,
+              //             style: TextStyle(
+              //                 fontSize: 24,
+              //                 color: Colors.white,
+              //                 fontWeight: FontWeight.bold),
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),

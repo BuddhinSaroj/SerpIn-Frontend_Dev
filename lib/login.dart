@@ -1,14 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:serpin_mobile_application/body_forum.dart';
-import 'package:serpin_mobile_application/help_page.dart';
+import 'package:provider/provider.dart';
 import 'package:serpin_mobile_application/signUp_screen.dart';
+import 'Model/google_sign_in.dart';
 import 'forgot_password.dart';
-import 'home_page.dart';
+import 'nav_bar.dart';
 
 final GoogleSignIn googleSignIn = GoogleSignIn();
 Reference storageRef = FirebaseStorage.instance.ref();
@@ -22,130 +21,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool isAuth = false;
-  late PageController pageController;
-  int currentIndex = 1;
-
   @override
-  void initState() {
-    logout();
-    super.initState();
-    pageController = PageController(initialPage: 1);
-    googleSignIn.onCurrentUserChanged.listen((account) {
-      handleSignIn(account!);
-    }, onError: (err) {
-      print("Error signing in: $err");
-    });
-    //ReAuthenticate user when app is opened
-    // googleSignIn.signInSilently(suppressErrors: false).then((account) {
-    //   handleSignIn(account!);
-    // }).catchError((err) {
-    //   print("Error signing in: $err");
-    // });
-  }
-
-  handleSignIn(GoogleSignInAccount account) {
-    if (account != null) {
-      //createUserInFirestore();
-      print("User Signed in!: $account");
-      setState(() {
-        isAuth = true;
-      });
-    } else {
-      setState(() {
-        isAuth = false;
-      });
-    }
-  }
-
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
-
-  Future login() async {
-    try {
-      final googleUser = await googleSignIn.signIn();
-
-      final googleAuth = await googleUser?.authentication;
-
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-      await FirebaseAuth.instance.signInWithCredential(credential);
-    } catch (e) {
-      print(e.toString());
-    }
-  }
-
-  // login() {
-  //   googleSignIn.signIn();
-  // }
-
-  logout() {
-    googleSignIn.signOut();
-  }
-
-  onPageChanged(int currentIndex) {
-    setState(() {
-      this.currentIndex = currentIndex;
-    });
-  }
-
-  onTap(int currentIndex) {
-    pageController.animateToPage(
-      currentIndex,
-      duration: Duration(milliseconds: 200),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  final screens = [ForumData(), HomePage(), HelpScreen()];
-
-  Scaffold buildAuthScreen() {
-    return Scaffold(
-      body: screens[currentIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFFFAFEFF), Color(0xFFABFFDC)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.people_alt_outlined),
-              label: "Timeline",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.help_outline_rounded),
-              label: 'Profile',
-            ),
-          ],
-          elevation: 0,
-          currentIndex: currentIndex,
-          unselectedItemColor: Colors.grey,
-          selectedItemColor: Colors.black,
-          selectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.normal,
-          ),
-          backgroundColor:
-              Colors.transparent, // set background color to transparent
-          onTap: (index) => setState(() => currentIndex = index),
-        ),
-      ),
-    );
-  }
-
-  Widget buildUnAuthScreen() {
+  Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
       height: MediaQuery.of(context).size.height,
@@ -302,15 +179,31 @@ class _LoginState extends State<Login> {
                   ),
                   const SizedBox(height: 10.0),
                   ElevatedButton(
-                    // onPressed: () async {
-                    //   final provider = Provider.of<GoogleSignInProvider>(
-                    //       context,
-                    //       listen: false);
-                    //   provider.googleLogin();
-                    //   Navigator.pop(context);
-                    // },
+                    onPressed: () async {
+                      final provider = Provider.of<GoogleSignInProvider>(
+                          context,
+                          listen: false);
+                      bool loginSuccess = await provider
+                          .googleLogin(); // Assuming googleLogin() returns a boolean indicating success or failure
 
-                    onPressed: login,
+                      if (loginSuccess) {
+                        // If login is successful, navigate to AuthScreen
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AuthScreen(),
+                          ),
+                        );
+                      } else {
+                        // If login fails, show a snackbar with "Login failed"
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Login failed'),
+                          ),
+                        );
+                      }
+                    },
+                    //onPressed: login,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -379,10 +272,5 @@ class _LoginState extends State<Login> {
         ),
       ),
     ));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return isAuth ? buildAuthScreen() : buildUnAuthScreen();
   }
 }

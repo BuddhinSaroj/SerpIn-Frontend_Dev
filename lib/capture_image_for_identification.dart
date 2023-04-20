@@ -282,7 +282,7 @@ class _ImageUploadState extends State<ImageUpload> {
                             SizedBox(width: 40),
                             ElevatedButton(
                               onPressed: () async {
-                                pred = await uploadImage(_image!);
+                                pred = await uploadImage();
                                 decoded = jsonDecode(pred);
                                 animalType = decoded['prediction'];
                                 await loadListPage();
@@ -345,41 +345,49 @@ class _ImageUploadState extends State<ImageUpload> {
     }
   }
 
-  // Future<String> uploadImage() async {
+  Future<String> uploadImage() async {
+    final response = await http.MultipartRequest(
+        "POST",
+        Uri.parse(
+            "http://10.0.2.2:4000/predict")); // Create a MultipartRequest with POST method and URL
+    final headers = {"Content-Type": "multipart/form-data"}; // Set headers
 
-  //   final response = await http.MultipartRequest("POST",Uri.parse("http://127.0.0.1:4000/predict")); // Create a MultipartRequest with POST method and URL
-  //   final headers = {"Content-Type": "multipart/form-data"}; // Set headers
-  //
-  //   response.files.add(http.MultipartFile('file', _image!.readAsBytes().asStream(), _image!.lengthSync(),filename: _image!.path.split("/").last)); // Add the image file to the request
-  //   response.headers.addAll(headers); // Add headers to the request
-  //   final reqResponse = await response.send(); // Send the request and get the response
-  //   http.Response res = await http.Response.fromStream(reqResponse); // Convert the response to http.Response
-  //   setState(() {}); // Update the state, if needed
-  //
-  //   return res.body; // Return the response body as a string
-  // }
+    response.files.add(http.MultipartFile(
+        'file', _image!.readAsBytes().asStream(), _image!.lengthSync(),
+        filename:
+            _image!.path.split("/").last)); // Add the image file to the request
+    response.headers.addAll(headers); // Add headers to the request
+    final reqResponse =
+        await response.send(); // Send the request and get the response
+    print("Test ------------");
+    http.Response res = await http.Response.fromStream(
+        reqResponse); // Convert the response to http.Response
+    setState(() {}); // Update the state, if needed
 
-  Future<String?> uploadImage(File imageFile) async {
-    var request = http.MultipartRequest(
-        'POST', Uri.parse('http://127.0.0.1:4000/predict'));
-
-    // Add the image file to the request
-    request.files
-        .add(await http.MultipartFile.fromPath('file', imageFile.path));
-    print(request);
-    var response = await request.send();
-
-    if (response.statusCode == 200) {
-      // Decode the response body from bytes to string
-      print("Status 200");
-      String responseBody = await response.stream.bytesToString();
-      print('Response: $responseBody');
-      return responseBody;
-    } else {
-      print('Failed to upload image');
-      return null;
-    }
+    return res.body; // Return the response body as a string
   }
+
+  // Future<String?> uploadImage(File imageFile) async {
+  //   var request = http.MultipartRequest(
+  //       'POST', Uri.parse('http://127.0.0.1:4000/predict'));
+  //
+  //   // Add the image file to the request
+  //   request.files
+  //       .add(await http.MultipartFile.fromPath('file', imageFile.path));
+  //   print(request);
+  //   var response = await request.send();
+  //
+  //   if (response.statusCode == 200) {
+  //     // Decode the response body from bytes to string
+  //     print("Status 200");
+  //     String responseBody = await response.stream.bytesToString();
+  //     print('Response: $responseBody');
+  //     return responseBody;
+  //   } else {
+  //     print('Failed to upload image');
+  //     return null;
+  //   }
+  // }
 
   loadListPage() async {
     Navigator.push(
