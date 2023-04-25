@@ -447,7 +447,7 @@ List<AnimalDetails> snakeList = [
   ),
 ];
 
-List<AnimalDetails> bees = [
+List<AnimalDetails> beesList = [
   AnimalDetails(
     commonName: 'Garden Bumble Bee',
     scientificName: 'Bombus hortorum',
@@ -559,7 +559,7 @@ List<AnimalDetails> bees = [
   ),
 ];
 
-List<AnimalDetails> wasp = [
+List<AnimalDetails> waspList = [
   AnimalDetails(
     commonName: 'Asian giant hornet',
     scientificName: 'Vespa mandarinia',
@@ -614,6 +614,7 @@ List<AnimalDetails> wasp = [
     imageUrl1: 'assets/wasp/blackjacket_2.jpg',
     imageUrl2: 'assets/wasp/blackjacket_3.jpg',
   ),
+  //need 2
   AnimalDetails(
     commonName: 'Common krait',
     scientificName: 'Bungarus Caeruleus',

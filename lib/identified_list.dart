@@ -275,7 +275,15 @@ class IdentifyList extends StatelessWidget {
     // } else if (disease == "Tomato Septoria Leaf Spot") {
     //   pItem = tomatoList[4];
     // }
-    else {
+    else if (animalType == "BEE-Garden_Bumble_Bee") {
+      pItem = beesList[0];
+    } else if (animalType == "BEE-Violet_Carpenter_Bee") {
+      pItem = beesList[1];
+    } else if (animalType == "WASP-Asian_Giant_Hornet") {
+      pItem = waspList[0];
+    } else if (animalType == "WASP-Blackjacket") {
+      pItem = waspList[1];
+    } else {
       nullFlag = 1;
     }
   }

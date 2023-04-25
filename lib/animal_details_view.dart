@@ -38,92 +38,95 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                   ),
                 ),
                 child: SafeArea(
-                  child: Column(children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 20),
+                    child: Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            InkWell(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Icon(Icons.arrow_back_ios_new,
+                                    size: 36, color: Colors.black)),
+                            ToggleSwitch(
+                              minWidth: 55.0,
+                              minHeight: 40.0,
+                              initialLabelIndex: 1,
+                              cornerRadius: 50.0,
+                              borderWidth: 3.0,
+                              borderColor: [profiletxt],
+                              activeFgColor: Colors.black,
+                              inactiveBgColor: toggleColor,
+                              inactiveFgColor: Colors.white,
+                              totalSwitches: 2,
+                              icons: [
+                                LanguageIcons.engIcon,
+                                LanguageIcons.sinIcon,
+                              ],
+                              iconSize: 55.0,
+                              activeBgColors: [
+                                [kPrimaryColor, kSecondaryColor],
+                                [kSecondaryColor, kPrimaryColor]
+                              ],
+                              animate: true,
+                              curve: Curves.easeIn,
+                              onToggle: (indexToggle) {
+                                print('switched to: $indexToggle');
+                                if (indexToggle == 1) {
+                                  setState(() {
+                                    flag = 1;
+                                  });
+                                } else {
+                                  setState(() {
+                                    flag = 0;
+                                  });
+                                }
                               },
-                              child: Icon(Icons.arrow_back_ios_new,
-                                  size: 36, color: Colors.black)),
-                          ToggleSwitch(
-                            minWidth: 55.0,
-                            minHeight: 40.0,
-                            initialLabelIndex: 1,
-                            cornerRadius: 50.0,
-                            borderWidth: 3.0,
-                            borderColor: [profiletxt],
-                            activeFgColor: Colors.black,
-                            inactiveBgColor: toggleColor,
-                            inactiveFgColor: Colors.white,
-                            totalSwitches: 2,
-                            icons: [
-                              LanguageIcons.engIcon,
-                              LanguageIcons.sinIcon,
-                            ],
-                            iconSize: 55.0,
-                            activeBgColors: [
-                              [kPrimaryColor, kSecondaryColor],
-                              [kSecondaryColor, kPrimaryColor]
-                            ],
-                            animate: true,
-                            curve: Curves.easeIn,
-                            onToggle: (indexToggle) {
-                              print('switched to: $indexToggle');
-                              if (indexToggle == 1) {
-                                setState(() {
-                                  flag = 1;
-                                });
-                              } else {
-                                setState(() {
-                                  flag = 0;
-                                });
-                              }
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 230,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Image.asset(
-                          (widget.animalDetails.imageUrl),
-                          height: 200,
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: SizedBox(
-                        child: Column(children: [
-                          Text(
-                            'සාමාන්‍ය නාමය',
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                              color: profiletxt,
-                            ),
+                      SizedBox(
+                        height: 230,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Image.asset(
+                            (widget.animalDetails.imageUrl),
+                            height: 200,
                           ),
-                          Text(
-                            widget.animalDetails.sinhalaCommonName,
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ]),
+                        ),
                       ),
-                    ),
-                  ]),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: SizedBox(
+                          child: Column(children: [
+                            Text(
+                              'සාමාන්‍ය නාමය',
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                color: profiletxt,
+                              ),
+                            ),
+                            Text(
+                              widget.animalDetails.sinhalaCommonName,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ]),
+                        ),
+                      ),
+                    ]),
+                  ),
                 ),
               ),
               Container(
