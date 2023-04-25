@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:serpin_mobile_application/user_profile.dart';
@@ -77,7 +78,28 @@ class _ImageUploadState extends State<ImageUpload> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 200),
+                        padding: EdgeInsets.only(top: 75),
+                        child: SizedBox(
+                          height: 250,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color:
+                                    profiletxt, // Specify the color of the border here
+                                width:
+                                    3, // Specify the width of the border here
+                              ),
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/capture_img.svg',
+                              width: 200,
+                              height: 250,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 40),
                         child: GestureDetector(
                           onTap: () => pickImageFile(ImageSource.camera),
                           child: Container(
@@ -85,21 +107,9 @@ class _ImageUploadState extends State<ImageUpload> {
                             height: h * 0.1,
                             width: w * 0.75,
                             decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0xFF12A69D),
-                                    blurRadius: 2,
-                                    offset: Offset(4, 8), // Shadow position
-                                  ),
-                                  BoxShadow(
-                                    color: Colors.white,
-                                    spreadRadius: 1,
-                                    blurRadius: 8,
-                                    offset: Offset(-4, -4),
-                                  ),
-                                ]),
+                              color: profiletxt,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
                             child: Row(
                               children: [
                                 Container(
@@ -116,7 +126,7 @@ class _ImageUploadState extends State<ImageUpload> {
                                 Text(
                                   "Capture via Camera",
                                   style: TextStyle(
-                                    color: Color(0xFF575E67),
+                                    color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -135,21 +145,9 @@ class _ImageUploadState extends State<ImageUpload> {
                           height: h * 0.1,
                           width: w * 0.75,
                           decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xFF12A69D),
-                                  blurRadius: 4,
-                                  offset: Offset(4, 8), // Shadow position
-                                ),
-                                BoxShadow(
-                                  color: Colors.white,
-                                  spreadRadius: 1,
-                                  blurRadius: 8,
-                                  offset: Offset(-4, -4),
-                                ),
-                              ]),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                           child: Row(
                             children: [
                               Container(
@@ -167,7 +165,7 @@ class _ImageUploadState extends State<ImageUpload> {
                               Text(
                                 "Select via Gallery",
                                 style: TextStyle(
-                                  color: Color(0xFF575E67),
+                                  color: Colors.black,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -349,7 +347,7 @@ class _ImageUploadState extends State<ImageUpload> {
     final response = await http.MultipartRequest(
         "POST",
         Uri.parse(
-            "http://10.0.2.2:4000/predict")); // Create a MultipartRequest with POST method and URL
+            "http://10.0.2.2:4000/clssification")); // Create a MultipartRequest with POST method and URL
     final headers = {"Content-Type": "multipart/form-data"}; // Set headers
 
     response.files.add(http.MultipartFile(
@@ -366,28 +364,6 @@ class _ImageUploadState extends State<ImageUpload> {
 
     return res.body; // Return the response body as a string
   }
-
-  // Future<String?> uploadImage(File imageFile) async {
-  //   var request = http.MultipartRequest(
-  //       'POST', Uri.parse('http://127.0.0.1:4000/predict'));
-  //
-  //   // Add the image file to the request
-  //   request.files
-  //       .add(await http.MultipartFile.fromPath('file', imageFile.path));
-  //   print(request);
-  //   var response = await request.send();
-  //
-  //   if (response.statusCode == 200) {
-  //     // Decode the response body from bytes to string
-  //     print("Status 200");
-  //     String responseBody = await response.stream.bytesToString();
-  //     print('Response: $responseBody');
-  //     return responseBody;
-  //   } else {
-  //     print('Failed to upload image');
-  //     return null;
-  //   }
-  // }
 
   loadListPage() async {
     Navigator.push(

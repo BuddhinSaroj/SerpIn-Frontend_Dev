@@ -103,6 +103,7 @@ flutter:
     - assets/welcome_screen.svg
     - assets/forgot_password.svg
     - assets/reset_password.svg
+    - assets/capture_img.svg
     - assets/otp.svg
     - assets/logo_white.png
     - assets/splash_img.png

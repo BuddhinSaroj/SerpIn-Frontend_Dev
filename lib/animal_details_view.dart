@@ -22,19 +22,24 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
     var size = MediaQuery.of(context).size;
     return flag == 1
         ? Scaffold(
-            body: SingleChildScrollView(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  height: size.height * 0.5,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(widget.animalDetails.imageUrl),
-                        fit: BoxFit.cover),
+            body: Stack(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                height: size.height,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFABFFDC),
+                      Color(0xFFFAFEFF),
+                    ],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
                   ),
-                  child: SafeArea(
-                    child: Padding(
+                ),
+                child: SafeArea(
+                  child: Column(children: [
+                    Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 20),
                       child: Row(
@@ -46,14 +51,14 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                                 Navigator.pop(context);
                               },
                               child: Icon(Icons.arrow_back_ios_new,
-                                  size: 36, color: Colors.white)),
+                                  size: 36, color: Colors.black)),
                           ToggleSwitch(
                             minWidth: 55.0,
                             minHeight: 40.0,
                             initialLabelIndex: 1,
-                            cornerRadius: 20.0,
+                            cornerRadius: 50.0,
                             borderWidth: 3.0,
-                            borderColor: [Colors.white],
+                            borderColor: [profiletxt],
                             activeFgColor: Colors.black,
                             inactiveBgColor: toggleColor,
                             inactiveFgColor: Colors.white,
@@ -85,14 +90,55 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: 230,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Image.asset(
+                          (widget.animalDetails.imageUrl),
+                          height: 200,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: SizedBox(
+                        child: Column(children: [
+                          Text(
+                            'සාමාන්‍ය නාමය',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: profiletxt,
+                            ),
+                          ),
+                          Text(
+                            widget.animalDetails.sinhalaCommonName,
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ]),
+                      ),
+                    ),
+                  ]),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: size.height * 0.55),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(
+                        50), // Specify the desired top left border radius value
+                    topRight: Radius.circular(
+                        50), // Specify the desired top right border radius value
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: size.height * 0.45),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50)),
+                child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(30),
                     child: Column(
@@ -107,25 +153,7 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                                 borderRadius: BorderRadius.circular(50)),
                           ),
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          "සාමාන්‍ය නාමය: " +
-                              widget.animalDetails.sinhalaCommonName,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        Divider(
-                          height: 40,
-                          thickness: 2,
-                          color: Colors.blueGrey[100],
-                          indent: 30,
-                          endIndent: 30,
-                        ),
+
                         SizedBox(
                           height: 15,
                         ),
@@ -166,7 +194,7 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                         ),
                         //විස්තරය
                         Text(
-                          "විස්තරය",
+                          "විස්තර",
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'Raleway',
@@ -331,83 +359,134 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                       ],
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ))
         //English View
         : Scaffold(
-            body: SingleChildScrollView(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  height: size.height * 0.5,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(widget.animalDetails.imageUrl),
-                        fit: BoxFit.cover),
+            body: Stack(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                height: size.height,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFABFFDC),
+                      Color(0xFFFAFEFF),
+                    ],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
                   ),
-                  child: SafeArea(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Icon(Icons.arrow_back_ios_new,
-                                  size: 36, color: Colors.white)),
-                          ToggleSwitch(
-                            minWidth: 55.0,
-                            minHeight: 40.0,
-                            initialLabelIndex: 0,
-                            cornerRadius: 20.0,
-                            borderWidth: 3.0,
-                            borderColor: [Colors.white],
-                            activeFgColor: Colors.black,
-                            inactiveBgColor: toggleColor,
-                            inactiveFgColor: Colors.white,
-                            totalSwitches: 2,
-                            icons: [
-                              LanguageIcons.engIcon,
-                              LanguageIcons.sinIcon,
+                ),
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 20),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Icon(Icons.arrow_back_ios_new,
+                                      size: 36, color: Colors.black)),
+                              ToggleSwitch(
+                                minWidth: 55.0,
+                                minHeight: 40.0,
+                                initialLabelIndex: 0,
+                                cornerRadius: 50.0,
+                                borderWidth: 3.0,
+                                borderColor: [profiletxt],
+                                activeFgColor: Colors.white,
+                                inactiveBgColor: toggleColor,
+                                inactiveFgColor: Colors.white,
+                                totalSwitches: 2,
+                                icons: [
+                                  LanguageIcons.engIcon,
+                                  LanguageIcons.sinIcon,
+                                ],
+                                iconSize: 55.0,
+                                activeBgColors: [
+                                  [kPrimaryColor, kSecondaryColor],
+                                  [kSecondaryColor, kPrimaryColor]
+                                ],
+                                animate: true,
+                                curve: Curves.easeIn,
+                                onToggle: (indexToggle) {
+                                  print('switched to: $indexToggle');
+                                  if (indexToggle == 1) {
+                                    setState(() {
+                                      flag = 1;
+                                    });
+                                  } else {
+                                    setState(() {
+                                      flag = 0;
+                                    });
+                                  }
+                                },
+                              ),
                             ],
-                            iconSize: 55.0,
-                            activeBgColors: [
-                              [kPrimaryColor, kSecondaryColor],
-                              [kSecondaryColor, kPrimaryColor]
-                            ],
-                            animate: true,
-                            curve: Curves.easeIn,
-                            onToggle: (indexToggle) {
-                              print('switched to: $indexToggle');
-                              if (indexToggle == 1) {
-                                setState(() {
-                                  flag = 1;
-                                });
-                              } else {
-                                setState(() {
-                                  flag = 0;
-                                });
-                              }
-                            },
                           ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(
+                          height: 230,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(30),
+                            child: Image.asset(
+                              (widget.animalDetails.imageUrl),
+                              height: 200,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: SizedBox(
+                            child: Column(children: [
+                              Text(
+                                'Identification',
+                                style: TextStyle(
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: profiletxt,
+                                ),
+                              ),
+                              Text(
+                                widget.animalDetails.commonName,
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ]),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: size.height * 0.45),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50)),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: size.height * 0.55),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(
+                        50), // Specify the desired top left border radius value
+                    topRight: Radius.circular(
+                        50), // Specify the desired top right border radius value
+                  ),
+                ),
+                child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(30),
                     child: Column(
@@ -421,24 +500,6 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                                 color: Colors.green[50],
                                 borderRadius: BorderRadius.circular(50)),
                           ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          "Common Name: " + widget.animalDetails.commonName,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        Divider(
-                          height: 40,
-                          thickness: 2,
-                          color: Colors.blueGrey[100],
-                          indent: 30,
-                          endIndent: 30,
                         ),
                         SizedBox(
                           height: 15,
@@ -646,9 +707,9 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                       ],
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ));
   }
 }
