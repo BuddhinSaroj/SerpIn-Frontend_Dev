@@ -4,6 +4,7 @@ import 'package:serpin_mobile_application/user_profile.dart';
 
 import 'Utils/colors.dart';
 import 'capture_image_for_identification.dart';
+import 'first-aid.dart';
 
 class HomePage extends StatelessWidget {
   final User user = FirebaseAuth.instance.currentUser!;
@@ -144,7 +145,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 250,
+                height: 165,
                 width: 350,
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -173,7 +174,7 @@ class HomePage extends StatelessWidget {
                           color: profiletxt,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 20),
                     Column(
                       children: [
                         Container(
@@ -207,37 +208,46 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              // Container(
-              //   margin: EdgeInsets.all(16),
-              //   padding: EdgeInsets.all(16),
-              //   decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.circular(35),
-              //     color: Color(0xFF007770),
-              //   ),
-              //   child: Row(
-              //     children: [
-              //       Expanded(
-              //         flex: 1,
-              //         child: Image.asset("assets/first_aid.png"),
-              //       ),
-              //       SizedBox(width: 16),
-              //       Expanded(
-              //         flex: 4,
-              //         child: Container(
-              //           margin: EdgeInsets.symmetric(horizontal: 16),
-              //           child: Text(
-              //             "First-Aid",
-              //             textAlign: TextAlign.right,
-              //             style: TextStyle(
-              //                 fontSize: 24,
-              //                 color: Colors.white,
-              //                 fontWeight: FontWeight.bold),
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FirstAidScreen()),
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(35),
+                    color: Color(0xFF007770),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 90),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Image.asset("assets/first_aid.png"),
+                        ),
+                        Expanded(
+                          flex: 4,
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 16),
+                            child: Text(
+                              "First-Aid",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

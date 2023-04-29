@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:serpin_mobile_application/animal_details_view.dart';
 import 'package:serpin_mobile_application/Model/animalDetails.dart';
+import 'package:serpin_mobile_application/capture_image_for_identification.dart';
 import 'package:serpin_mobile_application/user_profile.dart';
 
 import 'Utils/colors.dart';
@@ -96,17 +97,18 @@ class IdentifyList extends StatelessWidget {
                 ),
                 SizedBox(height: 60),
                 GestureDetector(
-                  child: Container(
-                    width: w * 0.15,
-                    height: h * 0.15,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                      image: AssetImage("assets/home_id.png"),
-                    )),
-                  ),
-                  onTap: () =>
-                      Navigator.of(context).popUntil((_) => count++ >= 1),
-                ),
+                    child: Container(
+                      width: w * 0.15,
+                      height: h * 0.15,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                        image: AssetImage("assets/home_id.png"),
+                      )),
+                    ),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ImageUpload()))),
               ]),
             ),
           ))
@@ -223,59 +225,33 @@ class IdentifyList extends StatelessWidget {
 
   checkAnimalType() {
     print("Animal Type Checked");
-    if (animalType == "Bungarus_Caeruleus") {
+    if (animalType == "Snake-Bungarus_Caeruleus") {
       pItem = snakeList[0];
-    } else if (animalType == "Daboia_Russelii") {
+    } else if (animalType == "Snake-Daboia_Russelii") {
       pItem = snakeList[1];
-    } else if (animalType == "Echis_Carinatus") {
-      pItem = snakeList[1];
-    }
-    // } else if (disease == "Bollworm") {
-    //   pItem = pestList[2];
-    // } else if (disease == "Chilli Leaf Spot") {
-    //   pItem = chiliList[0];
-    // } else if (disease == "Chilli Whitefly") {
-    //   pItem = pestList[6];
-    // } else if (disease == "Citrus Greening") {
-    //   pItem = citrusList[0];
-    // } else if (disease == "Corn Gray Leaf Spot") {
-    //   pItem = cornList[0];
-    // } else if (disease == "Corn Northern Leaf Blight") {
-    //   pItem = cornList[1];
-    // } else if (disease == "Grape Black Rot") {
-    //   pItem = grapeList[0];
-    // } else if (disease == "Grape Healthy") {
-    //   pItem = grapeList[2];
-    // } else if (disease == "Grape Leaf Blight") {
-    //   pItem = grapeList[1];
-    // } else if (disease == "Mites") {
-    //   pItem = pestList[3];
-    // } else if (disease == "Pepper Bacterial Spot") {
-    //   pItem = chiliList[2];
-    // } else if (disease == "Potato Early Blight") {
-    //   pItem = potatoList[0];
-    // } else if (disease == "Potato Healthy") {
-    //   pItem = potatoList[2];
-    // } else if (disease == "Potato Late Blight") {
-    //   pItem = potatoList[1];
-    // } else if (disease == "Sawfly") {
-    //   pItem = pestList[4];
-    // } else if (disease == "Stem Borer") {
-    //   pItem = pestList[5];
-    // } else if (disease == "Strawberry Leaf Scorch") {
-    //   pItem = berryList[0];
-    // } else if (disease == "Tomato Bacterial Spot") {
-    //   pItem = tomatoList[0];
-    // } else if (disease == "Tomato Early Blight") {
-    //   pItem = tomatoList[1];
-    // } else if (disease == "Tomato Leaf Mold") {
-    //   pItem = tomatoList[2];
-    // } else if (disease == "Tomato Mosaic Virus") {
-    //   pItem = tomatoList[3];
-    // } else if (disease == "Tomato Septoria Leaf Spot") {
-    //   pItem = tomatoList[4];
-    // }
-    else if (animalType == "BEE-Garden_Bumble_Bee") {
+    } else if (animalType == "Snake-Echis_Carinatus") {
+      pItem = snakeList[2];
+    } else if (animalType == "Snake-Hypnale_Hypnale") {
+      pItem = snakeList[3];
+    } else if (animalType == "Snake-Naja_Naja") {
+      pItem = snakeList[4];
+    } else if (animalType == "Snake-Ahaetulla_Nasuta") {
+      pItem = snakeList[5];
+    } else if (animalType == "Snake-Boiga_Trigonata") {
+      pItem = snakeList[6];
+    } else if (animalType == "Snake-Amphiesma_Stolatum") {
+      pItem = snakeList[7];
+    } else if (animalType == "Snake-Chrysopelea_Ornata") {
+      pItem = snakeList[8];
+    } else if (animalType == "Snake-Lycodon_Aulicus") {
+      pItem = snakeList[9];
+    } else if (animalType == "Snake-Ptyas_Mucosa") {
+      pItem = snakeList[10];
+    } else if (animalType == "Snake-Python_Molurus") {
+      pItem = snakeList[11];
+    } else if (animalType == "Snake-Trimeresurus_Trigonocephalus") {
+      pItem = snakeList[12];
+    } else if (animalType == "BEE-Garden_Bumble_Bee") {
       pItem = beesList[0];
     } else if (animalType == "BEE-Violet_Carpenter_Bee") {
       pItem = beesList[1];

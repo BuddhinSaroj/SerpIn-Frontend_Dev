@@ -40,7 +40,7 @@ class AnimalDetails {
 
 List<AnimalDetails> snakeList = [
   AnimalDetails(
-    commonName: 'Common Krait 1',
+    commonName: 'Common Krait',
     scientificName: 'Bungarus Caeruleus',
     imageUrl: 'assets/snakes/common_krait.png',
     venomousLevel: 'Deadly Venomous',
@@ -160,7 +160,7 @@ List<AnimalDetails> snakeList = [
         '- cobras are native to the Indian subcontinent and can be found throughout India, Pakistan, Sri Lanka, Bangladesh, and southern Nepal. Cobras inhabit a wide range of habitats throughout their geographical range. They can be found in dense or open forests, plains, agricultural lands (rice paddy fields, wheat crops), rocky terrain, wetlands, and they can even be found in heavily populated urban areas, such as villages and city outskirts. Cobras are often found in the vicinity of water.',
     lifeAndHabits:
         '- Most cobras are generally solitary and diurnal creatures. Indian cobras find their shelter in holes in embankments, tree hollows, termite mounds, rock piles, and small mammal dens. When threatened, these snakes take the characteristic posture they are famous for. They raise the front of the body and expand their distinctive hood, on which are resembled eyes-like hood marks. Indian cobras are one of the big four snakes of South Asia which are responsible for the majority of human deaths by snakebite in Asia.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
+    sinhalaCommonName: 'නාගයා',
     sinhalaScientificName: 'Naja naja',
     sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
     sinhalaDescription:
@@ -309,141 +309,86 @@ List<AnimalDetails> snakeList = [
     imageUrl1: 'assets/snakes/lycodon_aulicus_2.jpg',
     imageUrl2: 'assets/snakes/lycodon_aulicus_3.jpg',
   ),
-  // need to add from here
   AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
+    commonName: 'Rat Snake',
+    scientificName: 'Ptyas mucosa',
+    imageUrl: 'assets/snakes/ptyas_mucosa_1.jpg',
+    venomousLevel: 'Non-Venomous',
     description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
+        '- Ptyas mucosa, commonly known as the oriental ratsnake, Indian rat snake, darash or dhaman, is a common non-venomous species of colubrid snake found in parts of South and Southeast Asia. Dhamans are large snakes. \n Typical mature total length is around 1.5 to 1.95 m though some exceed 2 m.',
     appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
+        '- Indian Rat Snakes have a distinct pattern on their body, consisting of dark spots or blotches that run along their back, which often fades as they mature. \n The underside of the snake is cream-colored, and the eyes are large and black with round pupils.',
     geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
+        '-  Indian Rat Snakes are found in South Asia, including India, Nepal, Bangladesh, Sri Lanka, and Pakistan. \n They inhabit a variety of environments, including forests, grasslands, agricultural lands, and urban areas.',
     lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
+        '-  Indian Rat Snakes are diurnal and highly active during the day. They are agile climbers and excellent swimmers, allowing them to move through various habitats. \n They feed on small mammals, birds, and reptiles, including rats, mice, lizards, and frogs. They are also known to be highly adaptable and can survive in human-altered environments, including agricultural fields and urban areas. Indian Rat Snakes are considered beneficial to humans because they help control rodent populations.',
+    sinhalaCommonName: 'ගැරඬියා',
+    sinhalaScientificName: 'Ptyas mucosa',
+    sinhalaVenomousLevel: 'විෂ සහිත නොවන',
     sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
+        '- ගැරඬියා, සාමාන්‍යයෙන් oriental ratsnake, Indian rat snake, darash හෝ dhaman ලෙස හඳුන්වනු ලබන අතර, දකුණු සහ අග්නිදිග ආසියාවේ ප්‍රදේශ වල දක්නට ලැබෙන පොදු විෂ නොවන colubrid සර්ප විශේෂයකි. ධමන් යනු විශාල සර්පයන් ය. සාමාන්‍ය පරිණත සම්පූර්ණ දිග මීටර් 1.5 සිට 1.95 දක්වා වන නමුත් සමහරක් මීටර් 2 ඉක්මවයි.',
     sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
+        '-  ගැරඬියන්ගේ ශරීරය මත වෙනස් රටාවක් ඇත, ඔවුන්ගේ පිටුපස දිගේ දිවෙන අඳුරු ලප ඇත, ඒවා බොහෝ විට පරිණත වන විට මැකී යයි. සර්පයාගේ යටි පැත්ත ක්‍රීම් පැහැයෙන් යුක්ත වන අතර ඇස් කළු විශාල වන අතර වටකුරු ය.',
     sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
+        '- ගැරඬියන් ඉන්දියාව, නේපාලය, බංග්ලාදේශය, ශ්‍රී ලංකාව සහ පකිස්ථානය ඇතුළු දකුණු ආසියාවේ දක්නට ලැබේ. ඔවුන් වනාන්තර, තණබිම්, කෘෂිකාර්මික ඉඩම් සහ නාගරික ප්‍රදේශ ඇතුළු විවිධ පරිසරවල වාසය කරයි.',
     sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
+        '- ගැරඬියන් දිවා කාලයේ ඉතා ක්‍රියාශීලී වේ. ඔවුන් කඩිසර කඳු නගින්නන් සහ විශිෂ්ට පිහිනුම්කරුවන් වන අතර විවිධ වාසස්ථාන හරහා ගමන් කිරීමට ඔවුන්ට ඉඩ සලසයි. ඔවුන් මීයන්, කටුස්සන් සහ ගෙම්බන් ඇතුළු කුඩා ක්ෂීරපායින්, කුරුල්ලන් සහ උරගයින්ගෙන් පෝෂණය වේ. මොවුන්ට හොදින් අනුවර්තනය විය හැකි අතර කෘෂිකාර්මික ක්ෂේත්‍ර සහ නාගරික ප්‍රදේශ ඇතුළුව මිනිසා විසින් වෙනස් කරන ලද පරිසරවල නොනැසී පැවතිය හැකිය. \n ගැරඬියන් මිනිසුන්ට ප්‍රයෝජනවත් යැයි සැලකේ, මන්ද ඔවුන් මීයන්ගේ ගහනය පාලනය කිරීමට උපකාරී වේ.',
+    imageUrl1: 'assets/snakes/ptyas_mucosa_2.jpg',
+    imageUrl2: 'assets/snakes/ptyas_mucosa_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
+    commonName: 'Indian python, or Indian rock python',
+    scientificName: 'Python Molurus',
+    imageUrl: 'assets/snakes/python_molurus_1.jpg',
+    venomousLevel: 'Non-Venomous',
     description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
+        '- Indian pythons are one of the largest snakes in the world, with adults capable of growing up to 6 meters in length. \n They have a broad, muscular body and a large, triangular head. Their skin is covered in small, smooth scales that vary in color from light tan to dark brown, with dark, irregular blotches that run along their back and sides.',
     appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
+        '-  Indian pythons have a distinctive pattern on their skin, consisting of a series of dark, blotchy patches on a lighter background. \n The underside of the snake is typically cream-colored or yellow, and their eyes are relatively small compared to their large head.',
     geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
+        '- Indian pythons are native to the Indian subcontinent, including India, Nepal, Bhutan, and Pakistan. They inhabit a range of environments, including forests, grasslands, agricultural areas, and urban areas.',
     lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
+        '- Indian pythons are primarily nocturnal and spend much of their time hiding in crevices or underground. They are constrictors and prey on a variety of animals, including rodents, birds, reptiles, and mammals. \n They are ambush predators and will wait patiently for their prey before striking. Indian pythons are also known for their ability to swim and are often found near water sources. They are considered an important species in their native habitat and are protected under Indian law.',
+    sinhalaCommonName: 'පිඹුරා',
+    sinhalaScientificName: 'Python Molurus',
+    sinhalaVenomousLevel: 'විෂ සහිත නොවන',
     sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
+        '- පිඹුරන් ලොව විශාලතම සර්පයන්ගෙන් එකකි, පරිණත පිඹුරන් දිග මීටර් 6 ක් දක්වා වර්ධනය වේ. \n ඔවුන්ට පුළුල්, මාංශපේශී ශරීරයක් සහ විශාල, ත්‍රිකෝණාකාර හිසක් ඇත. ඔවුන්ගේ සම කුඩා සිනිඳු කොරපොතු වලින් ආවරණය වී ඇති අතර ඒවා ලා දුඹුරු සිට තද දුඹුරු දක්වා වෙනස් වන අතර ඒවායේ පිටුපස සහ පැති දිගේ දිවෙන අඳුරු අක්‍රමවත් ලප ඇත.',
     sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
+        '- පිඹුරන්ගේ සමෙහි සුවිශේෂී රටාවක් ඇති අතර, ළා පැහැති පසුබිමක අඳුරු, පැල්ලම් සහිත පැල්ලම් මාලාවකින් සමන්විත වේ. \n සර්පයාගේ යටි පැත්ත සාමාන්‍යයෙන් ක්‍රීම් හෝ කහ පැහැති වන අතර විශාල හිසට සාපේක්ෂව ඔවුන්ගේ ඇස් කුඩා වේ.',
     sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
+        '- පිඹුරන් ඉන්දියාව, නේපාලය, භූතානය සහ පකිස්ථානය ඇතුළු ඉන්දියානු උපමහාද්වීපය නිජබිම කරගෙන වාසය කරයි . ඔවුන් වනාන්තර, තණබිම්, කෘෂිකාර්මික ප්‍රදේශ සහ නාගරික ප්‍රදේශ ඇතුළු පරිසර පරාසයක වාසය කරයි.',
     sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
+        '- පිඹුරන් ප්‍රධාන වශයෙන් නිශාචර වන අතර ඔවුන් වැඩි කාලයක් කුහරවල හෝ පොළව යට සැඟවී සිටියි. ඔවුන් මීයන්, කුරුල්ලන්, උරගයින් සහ ක්ෂීරපායින් ඇතුළු විවිධ සතුන් ගොදුරු කර ගනී. ඔවුන් සැඟවී සිටින විලෝපිකයන් වන අතර පහර දීමට පෙර ඔවුන්ගේ ගොදුර සඳහා ඉවසිලිවන්තව බලා සිටියි. පිඹුරන් පිහිනීම සඳහා ද ප්‍රසිද්ධ වන අතර බොහෝ විට ජල මූලාශ්‍ර අසල දක්නට ලැබේ. \n ඔවුන් ඔවුන්ගේ දේශීය වාසභූමියේ වැදගත් විශේෂයක් ලෙස සලකනු ලබන අතර ඉන්දියානු නීතිය යටතේ ආරක්ෂා කර ඇත.',
+    imageUrl1: 'assets/snakes/python_molurus_2.jpg',
+    imageUrl2: 'assets/snakes/python_molurus_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
+    commonName: 'Sri Lankan green pit viper',
+    scientificName: 'Trimeresurus trigonocephalus',
+    imageUrl: 'assets/snakes/trimeresurus_trigonocephalus_1.jpg',
     venomousLevel: 'Deadly Venomous',
     description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
+        '- Sri Lankan pit vipers are relatively small snakes, with adults growing to a length of around 60-70 cm. They have a triangular-shaped head, hence the name trigonocephalus, and a slender body covered in keeled scales. \n Their coloration can vary, but they typically have a bright green or yellow-green body with darker green or black markings along their back and sides.',
     appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
+        '-  Sri Lankan pit vipers have a distinctive coloration that helps them blend into their natural habitat of forested areas. They have vertical pupils and a pit organ between their eyes and nostrils that enables them to sense the heat of their prey. ',
     geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
+        '- Sri Lankan pit vipers are found in Sri Lanka and southern India, inhabiting a range of forested areas and often found near water sources.',
     lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
+        '- It is arboreal and nocturnal, occasionally descending to the ground in search of food such as lizards, frogs, small mammals, and birds. \n This sluggish pit viper is usually encountered on low shrubs during morning hours, but it mostly occupies in grasslands and rain forests. In mornings, it is seen to stay on top of trees to obtain sun rays to heat its body. It uses its tail to hold on to a tree branch. \n This is not a particularly defensive species, but if agitated, it will vibrate its tail tip, form a sinuous loop with the fore body, and lash and attempt to bite, seldom with a hissing sound. It produces live young mostly during June and july.',
+    sinhalaCommonName: 'පලා පොළඟු',
+    sinhalaScientificName: 'Trimeresurus trigonocephalus',
     sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
     sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
+        '- පලා පොළඟා යනු සාපේක්ෂව කුඩා සර්පයන් වන අතර පරිණත සතුන් සෙන්ටිමීටර 60-70ක් පමණ දිගට වැඩෙයි. ඔවුන්ට ත්‍රිකෝණාකාර හැඩැති හිසක් ඇත, එබැවින් ට්‍රයිගොනොසෙෆලස් යන නම ලැබී ඇත. \n සිරුර සිහින් කොරපොතු වලින් ආවරණය වී ඇත. ඔවුන්ගේ වර්ණය වෙනස් විය හැක, නමුත් සාමාන්යයෙන් ඔවුන්ගේ පිටුපස සහ පැති දිගේ තද කොළ හෝ කළු සලකුණු සහිත දීප්තිමත් කොළ හෝ කහ-කොළ ශරීරයක් ඇත.',
     sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
+        '- ශ්‍රී ලංකාවේ පලා පොළඟුන්ට සුවිශේෂී වර්ණ ගැන්වීමක් ඇති අතර එය වනාන්තර ප්‍රදේශවල ඔවුන්ගේ ස්වභාවික වාසභූමියට මිශ්‍ර වීමට උපකාරී වේ. ඔවුන්ගේ ඇසේ කණීනිකාව සිරස් අතට ඇති අතර ඔවුන්ගේ ඇස් සහ නාස්පුඩු අතර වළේ අවයවයක් ඇත. එමඟින් ඔවුන්ගේ ගොදුරේ තාපය දැනීමට හැකි වේ.',
     sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
+        '- ශ්‍රී ලංකාවේ පලා පොළඟුන් ශ්‍රී ලංකාවේ සහ දකුණු ඉන්දියාවේ දක්නට ලැබෙන අතර, වනාන්තර ප්‍රදේශ කිහිපයක වාසය කරන අතර බොහෝ විට ජල මූලාශ්‍ර අසල දක්නට ලැබේ.',
     sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
-  ),
-  AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
-    description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
-    appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
-    geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
-    lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
-    sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
-    sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
-    sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
-    sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
-  ),
-  AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
-    description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
-    appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
-    geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
-    lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
-    sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
-    sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
-    sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
-    sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
+        '- පලා පොළඟා නිශාචර වන අතර වෘක්ෂලතා මත වාසය කරයි. , කටුස්සන්, ගෙම්බන්, කුඩා ක්ෂීරපායින් සහ කුරුල්ලන් වැනි ආහාර සෙවීම සඳහා ඉඳහිට බිමට බැස යයි. සාමාන්‍යයෙන් උදය කාලයේදී පහත් පඳුරු මත දක්නට ලැබේ, නමුත් බොහෝ දුරට තණබිම් සහ වැසි වනාන්තරවල වාසය කරයි. උදය කාලයේදී තම සිරුර රත් කිරීමට හිරු කිරණ ලබා ගැනීම සඳහා ගස් මත රැඳී සිටිනු දක්නට ලැබේ.ගසක අත්තක් අල්ලා ගැනීමට එහි වලිගය භාවිතා කරයි. \n මෙය විශේෂ ආරක්‍ෂක උපක්‍රමයක් නොවේ, නමුත් කලබල වුවහොත්, උගේ වලිග තුඩ කම්පනය කර කලාතුරකින් හිස්සිං ශබ්දයක් සමඟ පහර දී දෂ්ට කිරීමට උත්සාහ කරයි. බොහෝ විට මොවුන් ජුනි සහ ජූලි මාසවලදී පැටවුන් බිහි කරයි.',
+    imageUrl1: 'assets/snakes/trimeresurus_trigonocephalus_2.jpg',
+    imageUrl2: 'assets/snakes/trimeresurus_trigonocephalus_3.jpg',
   ),
 ];
 

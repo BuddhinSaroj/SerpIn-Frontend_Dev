@@ -11,6 +11,7 @@ import 'package:serpin_mobile_application/user_profile.dart';
 
 import 'Utils/colors.dart';
 import 'identified_list.dart';
+import 'nav_bar.dart';
 
 class ImageUpload extends StatefulWidget {
   const ImageUpload({Key? key}) : super(key: key);
@@ -50,11 +51,16 @@ class _ImageUploadState extends State<ImageUpload> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Image.asset(
-                                'assets/logo.png',
-                                width: 80,
-                                height: 30,
-                              ),
+                              InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                AuthScreen()));
+                                  },
+                                  child: Icon(Icons.arrow_back_ios_new,
+                                      size: 36, color: Colors.black)),
                               Expanded(
                                 child: Align(
                                   alignment: Alignment.centerRight,

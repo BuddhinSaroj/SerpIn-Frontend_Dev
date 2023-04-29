@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:serpin_mobile_application/home_page.dart';
+import 'package:serpin_mobile_application/nav_bar.dart';
 import 'Model/google_sign_in.dart';
 import 'Utils/colors.dart';
 import 'Utils/utils.dart';
@@ -41,6 +43,15 @@ class Profile extends StatelessWidget {
                         width: 80,
                         height: 30,
                       ),
+                      InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AuthScreen()));
+                          },
+                          child: Icon(Icons.arrow_forward_ios,
+                              size: 30, color: Colors.black)),
                     ],
                   ),
                 ),

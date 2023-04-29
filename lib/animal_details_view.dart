@@ -4,6 +4,7 @@ import 'package:toggle_switch/toggle_switch.dart';
 
 import 'Utils/colors.dart';
 import 'Utils/language_icons.dart';
+import 'capture_image_for_identification.dart';
 
 class AnimalDetailsScreen extends StatefulWidget {
   final AnimalDetails animalDetails;
@@ -50,7 +51,10 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                           children: <Widget>[
                             InkWell(
                                 onTap: () {
-                                  Navigator.pop(context);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ImageUpload()));
                                 },
                                 child: Icon(Icons.arrow_back_ios_new,
                                     size: 36, color: Colors.black)),
@@ -397,7 +401,11 @@ class _AnimalDetailsScreenState extends State<AnimalDetailsScreen> {
                             children: <Widget>[
                               InkWell(
                                   onTap: () {
-                                    Navigator.pop(context);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ImageUpload()));
                                   },
                                   child: Icon(Icons.arrow_back_ios_new,
                                       size: 36, color: Colors.black)),
