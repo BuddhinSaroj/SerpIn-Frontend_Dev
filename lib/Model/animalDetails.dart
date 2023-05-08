@@ -228,6 +228,7 @@ List<AnimalDetails> snakeList = [
     imageUrl1: 'assets/snakes/boiga_trigonata_2.png',
     imageUrl2: 'assets/snakes/boiga_trigonata_3.png',
   ),
+  // from there (Krishani)
   AnimalDetails(
     commonName: 'Buff Striped Keelback or Indian water snake.',
     scientificName: 'Amphiesma Stolatum',
@@ -259,7 +260,7 @@ List<AnimalDetails> snakeList = [
     commonName: 'Ornate Flying Snake.',
     scientificName: 'Chrysopelea Ornata',
     imageUrl: 'assets/snakes/chrysopelea_ornata_1.jpg',
-    venomousLevel: 'Mildly Venomous',
+    venomousLevel: 'Mildly Venomous (not considered dangerous)',
     description:
         '- Chrysopelea ornata is a species of arboreal snake that is capable of gliding through the air. It is slender and can grow up to 1.2 meters in length. \n Currently, three subspecies are recognized.  The snake\'s body is flattened, with a triangular head that is distinct from its body. \n Its scales are smooth and shiny, giving it a bright and iridescent appearance. ',
     appearance:
@@ -270,7 +271,7 @@ List<AnimalDetails> snakeList = [
         '- Chrysopelea ornata is an arboreal species that spends most of its time in trees. It is primarily diurnal, which means it is active during the day. The ornate flying snake is a gliding snake, meaning it is able to launch itself from a high point and glide through the air, controlling its direction with its body. The snake feeds primarily on lizards, frogs, and other small prey. It is generally a shy and non-aggressive species. ',
     sinhalaCommonName: 'මල්සරා',
     sinhalaScientificName: 'Chrysopelea Ornata',
-    sinhalaVenomousLevel: 'මද විෂ සහිත',
+    sinhalaVenomousLevel: 'මද විෂ සහිත (දරුණු ලෙස නොසැලකේ)',
     sinhalaDescription:
         '- මල්සරා යනු වාතය හරහා ලිස්සා යාමේ හැකියාව ඇති සර්ප විශේෂයකි. එය සිහින් සහ දිග මීටර් 1.2 දක්වා වර්ධනය විය හැක. \n දැනට, උප විශේෂ තුනක් හඳුනාගෙන ඇත. සර්පයාගේ ශරීරය සමතලා වන අතර, උගේ ශරීරයෙන් වෙනස් වූ ත්‍රිකෝණාකාර හිසක් ඇත. \n එහි කොරපොතු සිනිඳු සහ දිලිසෙන අතර, එය දීප්තිමත් සහ වර්ණවත් පෙනුමක් ලබා දෙයි.  ',
     sinhalaAppearance:
@@ -310,7 +311,7 @@ List<AnimalDetails> snakeList = [
     imageUrl2: 'assets/snakes/lycodon_aulicus_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Rat Snake',
+    commonName: 'Indian Rat Snake',
     scientificName: 'Ptyas mucosa',
     imageUrl: 'assets/snakes/ptyas_mucosa_1.jpg',
     venomousLevel: 'Non-Venomous',
@@ -367,7 +368,7 @@ List<AnimalDetails> snakeList = [
     commonName: 'Sri Lankan green pit viper',
     scientificName: 'Trimeresurus trigonocephalus',
     imageUrl: 'assets/snakes/trimeresurus_trigonocephalus_1.jpg',
-    venomousLevel: 'Deadly Venomous',
+    venomousLevel: 'Mildly Venomous',
     description:
         '- Sri Lankan pit vipers are relatively small snakes, with adults growing to a length of around 60-70 cm. They have a triangular-shaped head, hence the name trigonocephalus, and a slender body covered in keeled scales. \n Their coloration can vary, but they typically have a bright green or yellow-green body with darker green or black markings along their back and sides.',
     appearance:
@@ -376,9 +377,9 @@ List<AnimalDetails> snakeList = [
         '- Sri Lankan pit vipers are found in Sri Lanka and southern India, inhabiting a range of forested areas and often found near water sources.',
     lifeAndHabits:
         '- It is arboreal and nocturnal, occasionally descending to the ground in search of food such as lizards, frogs, small mammals, and birds. \n This sluggish pit viper is usually encountered on low shrubs during morning hours, but it mostly occupies in grasslands and rain forests. In mornings, it is seen to stay on top of trees to obtain sun rays to heat its body. It uses its tail to hold on to a tree branch. \n This is not a particularly defensive species, but if agitated, it will vibrate its tail tip, form a sinuous loop with the fore body, and lash and attempt to bite, seldom with a hissing sound. It produces live young mostly during June and july.',
-    sinhalaCommonName: 'පලා පොළඟු',
+    sinhalaCommonName: 'පලා පොළඟා',
     sinhalaScientificName: 'Trimeresurus trigonocephalus',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
+    sinhalaVenomousLevel: 'මද විෂ සහිත',
     sinhalaDescription:
         '- පලා පොළඟා යනු සාපේක්ෂව කුඩා සර්පයන් වන අතර පරිණත සතුන් සෙන්ටිමීටර 60-70ක් පමණ දිගට වැඩෙයි. ඔවුන්ට ත්‍රිකෝණාකාර හැඩැති හිසක් ඇත, එබැවින් ට්‍රයිගොනොසෙෆලස් යන නම ලැබී ඇත. \n සිරුර සිහින් කොරපොතු වලින් ආවරණය වී ඇත. ඔවුන්ගේ වර්ණය වෙනස් විය හැක, නමුත් සාමාන්යයෙන් ඔවුන්ගේ පිටුපස සහ පැති දිගේ තද කොළ හෝ කළු සලකුණු සහිත දීප්තිමත් කොළ හෝ කහ-කොළ ශරීරයක් ඇත.',
     sinhalaAppearance:
@@ -447,60 +448,59 @@ List<AnimalDetails> beesList = [
     imageUrl1: 'assets/bees/violet_carpenter_bee_2.jpg',
     imageUrl2: 'assets/bees/violet_carpenter_bee_3.jpg',
   ),
-  //need 2
   AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
+    commonName: 'Honey bee',
+    scientificName: ' Apis mellifera ',
+    imageUrl: 'assets/bees/honey_bee_1.jpg',
+    venomousLevel: 'Non-Venomous',
     description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
+        '-  Honey bees are social insects that belong to the family Apidae. They are important pollinators and producers of honey. \n Honey bees are known for their complex social behavior and communication, which includes the famous "waggle dance" used to communicate the location of food sources to other bees in the hive.',
     appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
+        '-  Honey bees are small insects with a fuzzy, yellow and black striped body. They have two pairs of wings and six legs. \n The worker bees are about 12mm long, while the queen bee is slightly larger at around 15mm in length.',
     geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
+        '- Honey bees are found all over the world, except in Antarctica. They are native to Europe, Africa, and western Asia, \n  but have been introduced to many other parts of the world, including North and South America, Australia, and New Zealand.',
     lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
+        '- Honey bees are social insects that live in colonies or hives. The colony consists of a queen bee, worker bees, and drones. The worker bees are responsible for collecting nectar and pollen from flowers, which they use to produce honey and feed the colony. The queen bee is responsible for laying eggs and maintaining the colony\'s population. \n Drones are male bees that mate with the queen. Honey bees are active throughout the year, but are most active during the spring and summer months. They are important pollinators for many crops, and their honey is used for food and medicinal purposes.',
+    sinhalaCommonName: 'මී මැස්සා',
+    sinhalaScientificName: ' Apis mellifera',
+    sinhalaVenomousLevel: 'විෂ සහිත නොවන',
     sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
+        '- මී මැස්සන් Apidae පවුලට අයත් සමාජශීලී කෘමීන් වේ. ඔවුන් වැදගත් පරාග කාරක සහ මී පැණි නිෂ්පාදකයන් වේ. \n මී මැස්සන් ඔවුන්ගේ සංකීර්ණ සමාජ හැසිරීම් සහ සන්නිවේදනය සඳහා ප්‍රසිද්ධ වී ඇති අතර, මී මැස්සන් වදයේ සිටින අනෙකුත් මී මැස්සන්ට ආහාර ප්‍රභවයන් ඇති ස්ථානය සන්නිවේදනය කිරීමට භාවිතා කරන සුප්‍රසිද්ධ "වැගල් නැටුම" භාවිතා කරයි.',
     sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
+        '- මී මැස්සන් යනු නොපැහැදිලි, කහ සහ කළු ඉරි සහිත ශරීරයක් සහිත කුඩා කෘමීන් ය. ඔවුන්ට පියාපත් යුගල දෙකක් සහ කකුල් හයක් ඇත. \n වැඩකාර මී මැස්සන් මිලිමීටර් 12ක් පමණ දිග වන අතර රැජින මී මැස්සන් තරමක් විශාල වන අතර දිග මිලිමීටර් 15ක් පමණ වේ.',
     sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
+        '- මී මැස්සන් ඇන්ටාක්ටිකාව හැර ලොව පුරා දක්නට ලැබේ. ඔවුන් යුරෝපය, අප්‍රිකාව සහ බටහිර ආසියාවේ නිජබිම වන නමුත් උතුරු සහ දකුණු ඇමරිකාව, ඕස්ට්‍රේලියාව සහ නවසීලන්තය ඇතුළු ලෝකයේ වෙනත් බොහෝ ප්‍රදේශවල හඳුනාගත හැක.',
     sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
+        '- මී මැස්සන් යනු ජනපදවල හෝ වද වල ජීවත් වන සමාජ කෘමීන් ය. මෙම ජනපදය සමන්විත වන්නේ මී මැසි රැජිනක්, සේවක මී මැස්සන් සහ පිරිමි මී මැස්සන්ගෙන්ය. වැඩ කරන මී මැස්සන් මල් වලින් මල් පැණි සහ පරාග එකතු කිරීමේ වගකීම දරයි, ඔවුන් මී පැණි නිපදවීමට සහ ජනපදය පෝෂණය කිරීමට භාවිතා කරයි. රැජින බිත්තර දැමීම සහ ජනපදයේ ජනගහනය නඩත්තු කිරීම සඳහා වගකිව යුතුය. \n අනෙකුත් මී මැස්සන් රැජින සමඟ සංසර්ගයේ යෙදෙන පිරිමි මී මැස්සන් ය. මී මැස්සන් වසර පුරා ක්‍රියාකාරී වන නමුත් වසන්ත හා ගිම්හාන මාසවලදී වඩාත් ක්‍රියාකාරී වේ. මොවුන් බොහෝ භෝග සඳහා වැදගත් පරාගකාරක වන අතර, ඔවුන්ගේ මී පැණි ආහාර හා ඖෂධීය අරමුණු සඳහා යොදා ගනී.',
+    imageUrl1: 'assets/bees/honey_bee_2.jpg',
+    imageUrl2: 'assets/bees/honey_bee_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
+    commonName: 'Pure Green Sweat Bee',
+    scientificName: 'Augochlora pura',
+    imageUrl: 'assets/bees/pure_green_sweat_bee_1.jpg',
+    venomousLevel: 'Non-Venomous',
     description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
+        '- The Pure Green Sweat Bee is a species of bee in the Halictidae family. They are a small, solitary bee that are typically found in grasslands and forested areas. \n They are known for their bright green metallic coloration.',
     appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
+        '- The Pure Green Sweat Bee is a small bee, measuring about 6 to 9 mm in length. \n They are bright green in color, with a metallic sheen. They have short, hairy antennae and wings that are translucent.',
     geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
+        '- The Pure Green Sweat Bee is found in North America, specifically in the eastern United States and parts of Canada.',
     lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
+        '- The Pure Green Sweat Bee is a solitary bee, meaning that they do not live in colonies like honey bees. \n They are important pollinators for a variety of plants, including wildflowers and crops. They get their name from their habit of collecting salt and moisture from human sweat, as well as from the sweat of other animals. \n They typically build their nests in the ground or in rotting wood, and the female bee lays her eggs in small chambers within the nest. The Pure Green Sweat Bee is not typically aggressive, and they will only sting if they feel threatened.',
+    sinhalaCommonName: 'Pure Green Sweat Bee',
+    sinhalaScientificName: 'Augochlora pura',
+    sinhalaVenomousLevel: 'විෂ සහිත නොවන',
     sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
+        '- Pure Green Sweat Bee යනු Halictidae පවුලේ මී මැසි විශේෂයකි. ඔවුන් සාමාන්‍යයෙන් තණබිම් සහ වනාන්තර ප්‍රදේශවල දක්නට ලැබෙන කුඩා, හුදකලා මී මැස්සෙකි. \n ඔවුන් ඔවුන්ගේ දීප්තිමත් කොළ පැහැති ලෝහමය වර්ණ සඳහා ප්‍රසිද්ධය.',
     sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
+        '- Pure Green Sweat Bee යනු කුඩා මී මැස්සෙකි, දිග මිලිමීටර් 6 සිට 9 දක්වා වේ. මොවුන් ලෝහමය බැබළීමක් සහිත දීප්තිමත් කොළ පැහැති වේ. මොවුන්ට කෙටි, රෝම සහිත ඇන්ටෙනා සහ පාරභාසක පියාපත් ඇත.',
     sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
+        '- මෙම මී මැස්සන් විශේෂය උතුරු ඇමරිකාවේ, විශේෂයෙන් නැගෙනහිර එක්සත් ජනපදයේ සහ කැනඩාවේ සමහර ප්‍රදේශවල දක්නට ලැබේ.',
     sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
+        '- Pure Green Sweat Bee යනු හුදකලා මී මැස්සෙකු වන අතර එයින් අදහස් කරන්නේ ඔවුන් අනෙකුත් මී මැස්සන් මෙන් ජනපදවල ජීවත් නොවන බවයි. වල් මල් සහ භෝග ඇතුළු විවිධ ශාක සඳහා ඒවා වැදගත් පරාගකාරක වේ. \n මිනිසුන්ගේ දහඩියෙන් මෙන්ම අනෙකුත් සතුන්ගේ දහඩියෙන් ලුණු සහ තෙතමනය එකතු කිරීමේ පුරුද්ද නිසා ඔවුන්ට ඔවුන්ගේ නම ලැබී ඇත. ඔවුන් සාමාන්‍යයෙන් තම කූඩු ගොඩනගන්නේ පොළොවේ හෝ දිරාගිය ලීවල වන අතර ගැහැණු මී මැස්සන් කූඩුව තුළ කුඩා කුටිවල බිත්තර දමයි. \n මොවුන් සාමාන්‍යයෙන් ආක්‍රමණශීලී නොවන අතර, ඔවුන් දෂ්ට කරන්නේ තර්ජනයක් යැයි හැඟේ නම් පමණි.',
+    imageUrl1: 'assets/snakes/pure_green_sweat_bee_1.jpg',
+    imageUrl2: 'assets/snakes/pure_green_sweat_bee_1.jpg',
   ),
 ];
 
@@ -559,59 +559,58 @@ List<AnimalDetails> waspList = [
     imageUrl1: 'assets/wasp/blackjacket_2.jpg',
     imageUrl2: 'assets/wasp/blackjacket_3.jpg',
   ),
-  //need 2
   AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
+    commonName: 'Dark Paper Wasp',
+    scientificName: 'Polistes fuscatus',
+    imageUrl: 'assets/wasp/dark_paper_wasp_1.jpg',
+    venomousLevel: 'Venomous (not considered dangerous)',
     description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
+        '- Dark Paper Wasps are a type of social wasp that are commonly found in North America. They are named for their dark coloration and the paper-like material that they use to build their nests. \n Dark Paper Wasps are known for their aggressive behavior, especially when their nests are disturbed.',
     appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
+        '- Dark Paper Wasps are a medium-sized wasp, measuring about 1-2 inches in length. They have a black or dark brown body with yellow markings on their head and abdomen. \n Their wings are brownish-black in color. The shape of their body is slender with a narrow waist.',
     geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
+        '- Dark Paper Wasps are found throughout North America, from Canada to Mexico.',
     lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
+        '- Dark Paper Wasps are social wasps that live in colonies. The colony consists of a queen wasp and several female workers. \n The queen wasp lays eggs in the cells of the nest, and the female workers take care of the larvae and maintain the nest. Dark Paper Wasps are known for their aggressive behavior, and they will defend their nest vigorously if they feel threatened. They primarily feed on nectar and other insects, which they capture and feed to their larvae. \n Dark Paper Wasps are also known for their ability to learn and remember landmarks, which they use to navigate back to their nest.',
+    sinhalaCommonName: 'කලාඳුරුවා',
+    sinhalaScientificName: 'Polistes fuscatus',
+    sinhalaVenomousLevel: 'විෂ සහිත (දරුණු ලෙස නොසැලකේ)',
     sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
+        '- Dark Paper Wasp උතුරු ඇමරිකාවේ බහුලව දක්නට ලැබෙන සමාජශීලී බඹර විශේෂයකි. ඔවුන්ගේ අඳුරු පැහැය සහ ඔවුන්ගේ කූඩු තැනීමට භාවිතා කරන කඩදාසි වැනි ද්රව්ය නිසා ඔවුන් මේ නමින් නම් කර ඇත. \n මොවුන් ආක්‍රමණශීලී හැසිරීම් සඳහා ප්‍රසිද්ධය, විශේෂයෙන් ඔවුන්ගේ කූඩුවලට බාධා ඇති විට.',
     sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
+        '- Dark Paper Wasp මධ්‍යම ප්‍රමාණයේ බඹරෙකු වන අතර දිග අඟල් 1-2 ක් පමණ වේ. ඔවුන්ගේ හිසෙහි සහ උදරයේ කහ පැහැති සලකුණු සහිත කළු හෝ තද දුඹුරු පැහැති ශරීරයක් ඇත. \n ඔවුන්ගේ පියාපත් දුඹුරු-කළු වර්ණයෙන් යුක්ත වේ. ඔවුන්ගේ සිරුරේ හැඩය පටු ඉණක් සහිත සිහින් ය.',
     sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
+        '- මෙම බඹරුන් කැනඩාවේ සිට මෙක්සිකෝව දක්වා උතුරු ඇමරිකාව පුරා දක්නට ලැබේ.',
     sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
+        '- මෙම බඹරුන් යනු ජනපදවල ජීවත් වන සමාජ බඹරුන් ය. ජනපදය සමන්විත වන්නේ බඹර රැජිනක් සහ කාන්තා සේවිකාවන් කිහිප දෙනෙකුගෙන් ය. බඹර රැජින කූඩුවේ සෛල තුළ බිත්තර දමයි, කාන්තා සේවිකාවන් කීටයන් රැකබලා ගනිමින් කූඩුව නඩත්තු කරයි. \n මෙම බඹරුන් ඔවුන්ගේ ආක්‍රමණශීලී හැසිරීම් සඳහා ප්‍රසිද්ධ වන අතර, ඔවුන්ට තර්ජනයක් දැනේ නම්, ඔවුන් තම කැදැල්ල දැඩි ලෙස ආරක්ෂා කරයි. ඔවුන් මූලික වශයෙන් මල් පැණි සහ අනෙකුත් කෘමීන් මත පෝෂණය වන අතර, ඔවුන් අල්ලා ඔවුන්ගේ කීටයන් පෝෂණය කරයි. \n අඳුරු කඩදාසි බඹරුන් ඔවුන්ගේ කූඩුව වෙත ආපසු යාමට භාවිතා කරන බිම් සලකුණු ඉගෙන ගැනීමට සහ මතක තබා ගැනීමට ඇති හැකියාව සඳහා ද ප්‍රසිද්ධය.',
+    imageUrl1: 'assets/wasp/dark_paper_wasp_2.jpg',
+    imageUrl2: 'assets/wasp/dark_paper_wasp_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Common krait',
-    scientificName: 'Bungarus Caeruleus',
-    imageUrl: 'assets/snakes/common_krait_1.png',
-    venomousLevel: 'Deadly Venomous',
+    commonName: 'Yellowjacket',
+    scientificName: 'Vespula or Dolichovespula',
+    imageUrl: 'assets/wasp/yellowjacket_1.jpg',
+    venomousLevel: 'Venomous (not considered dangerous)',
     description:
-        '- The Common krait (Bungarus caeruleus ) is a highly venomous snake native to the Indian subcontinent. It is a member of the "big four" species, inflicting the most snakebites on humans in Bangladesh and India.\nThe Common kraits venom consists mostly of powerful neurotoxin, which induce muscle paralysis. The estimated lethal dose for humans is 2-3 mg. Kraits are nocturnal, so seldom encounter humans during daylight; incidents occur mainly at night.\nCommon kraits are carnivores feeding primarily on other snakes, including: "blind worms" and other kraits, including the young. They also feed on small mammals, lizards, and frogs. The young are known to eat arthropods.',
+        '- Yellowjackets are a type of social wasp that are known for their yellow and black striped abdomen. They are typically between 10-16mm in length, and they have a slender waist and a pointed abdomen. \n Yellowjackets are known for their aggressive behavior, especially when their nests are disturbed.',
     appearance:
-        '- The coloration of this snake is generally black or bluish-black, with about 40 thin, white crossbars which may be indistinct or absent anteriorly. Albino specimens can be found, although such cases are extremely rare. The pattern, however, is complete and well-defined in the young, which are marked with conspicuous crossbars even anteriorly; in old individuals, the narrow white lines may be found as a series of connected spots, with a prominent spot on the vertebral region. A white particular spot may be present; the upper lips and the belly are white. Males of this species are typically longer, with proportionately longer tails.',
+        '- Yellowjackets have black and yellow striped bodies, with the pattern varying slightly between species. They have a slender, elongated body with a narrow waist and a pointed abdomen. \n Their wings are translucent and folded lengthwise when at rest.',
     geographicLocation:
-        '- Common Kraits are distributed from Sindh to West Bengal, throughout South India and Sri Lanka. They have also been recorded in Afghanistan, Bangladesh, and Nepal. These snakes live in a wide variety of habitats, including fields and low scrub jungle, semi-desert, rocky areas, and oven ventures to plantations, cultivated land, suburban gardens, and settled areas. They rest in termite mounds, brick piles, rat holes, and even inside houses. Common kraits are frequently encountered in water or in proximity to a water source.',
+        '- Yellowjackets are found throughout the world, with species present in North America, Europe, Asia, and Australia.',
     lifeAndHabits:
-        '- Common kraits are solitary and can be active both during the day and night time. During the day, they are sluggish and generally docile. They often hide in rodent holes, loose soil, or beneath debris, so are rarely seen.',
-    sinhalaCommonName: 'තෙල් කරවැලා/මගමරුවා',
-    sinhalaScientificName: 'Common krait',
-    sinhalaVenomousLevel: 'මාරාන්තික විෂ සහිත',
+        '- Yellowjackets are social wasps that live in colonies. The colony consists of a queen wasp and several female workers. The queen wasp lays eggs in the cells of the nest, and the female workers take care of the larvae and maintain the nest. \n Yellowjackets are known for their aggressive behavior, and they will defend their nest vigorously if they feel threatened. They primarily feed on nectar and other insects, which they capture and feed to their larvae. \n In late summer and early fall, the colony produces new queens and males, which mate and start new colonies the following year.',
+    sinhalaCommonName: 'Yellowjacket',
+    sinhalaScientificName: 'Vespula or Dolichovespula',
+    sinhalaVenomousLevel: 'විෂ සහිත (දරුණු ලෙස නොසැලකේ)',
     sinhalaDescription:
-        'තෙල් කරවැලා (Bungarus caeruleus) යනු ඉන්දියානු උපමහාද්වීපයට ආවේණික උග්‍ර විෂ සහිත සර්පයෙකි. එය "Big Four" විශේෂයේ සාමාජිකයෙකි, බංග්ලාදේශයේ සහ ඉන්දියාවේ මිනිසුන්ට වැඩිපුරම සර්ප දෂ්ට කිරීම් සිදු කරයි.\nතෙල් කරවැලාගේ විෂ බොහෝ දුරට සමන්විත වන්නේ මාංශ පේශි අංශභාගය ඇති කරන ප්‍රබල නියුරොටොක්සින් ය. මිනිසුන් සඳහා ඇස්තමේන්තුගත මාරාන්තික මාත්‍රාව 2-3 mg වේ. තෙල් කරවැලා නිශාචර වේ, එබැවින් දිවා කාලයේ මිනිසුන් හමුවන්නේ කලාතුරකිනි. සිදුවීම් ප්‍රධාන වශයෙන් රාත්‍රියේ සිදු වේ.\nතෙල් කරවැලා යනු ප්‍රධාන වශයෙන් අනෙකුත් සර්පයන් මත පෝෂණය වන මාංශ භක්ෂකයින් වන අතර, ඒවා ඇතුළුව: "පණුවන්" සහ තෙල් කරවැල් පැටවුන් ඇතුළු අනෙකුත් කුඩා ක්ෂීරපායින්, කටුස්සන් සහ ගෙම්බන්ගෙන්ද පෝෂණය වෙයි.',
+        '- Yellowjacket යනු කහ සහ කළු ඉරි සහිත උදරයක් සහිත සමාජ බඹර වර්ගයකි. ඔවුන් සාමාන්‍යයෙන් දිග 10-16mm අතර වන අතර සිහින් ඉණක් සහ උල් වූ උදරයක් ඇත. විශේෂයෙන් ඔවුන්ගේ කූඩුවලට බාධා ඇති විට ඔවුන් ආක්‍රමණශීලී හැසිරීම් දක්වයි. ',
     sinhalaAppearance:
-        '- මෙම සර්පයාගේ වර්ණය සාමාන්‍යයෙන් කළු හෝ නිල්-කළු වන අතර සිහින්, සුදු හරස් තීරු 40ක් පමණ ඇති අතර ඒවා ඉදිරිපස නොපැහැදිලි හෝ නොතිබිය හැකිය. එවැනි අවස්ථා අතිශයින් දුර්ලභ වුවද ඇල්බිනෝ නිදර්ශක සොයාගත හැකිය. කෙසේ වෙතත්, රටාව සම්පූර්ණ සහ මනාව අර්ථ දක්වා ඇති අතර, ඉදිරිපසින් පවා කැපී පෙනෙන හරස් තීරු වලින් සලකුණු කර ඇත; මහලු සර්පයන් තුළ පටු සුදු රේඛා සම්බන්ධිත ලප මාලාවක් ලෙස දක්නට ලැබේ, පෘෂ්ඨවංශික කලාපයේ ප්‍රමුඛ ස්ථානයක් ඇත. සුදු පැහැති පුර්ව ලපයක් තිබිය හැක, උඩුතොල් සහ උදරය සුදු ය. මෙම විශේෂයේ පිරිමි සාමාන්‍යයෙන් දිගු වන අතර සමානුපාතිකව දිගු වලිග ඇත.',
+        '- මොවුන්ට කළු සහ කහ ඉරි සහිත සිරුරු ඇත, විශේෂයන් අතර රටාව තරමක් වෙනස් වේ. පටු ඉණක් සහ උල් වූ උදරයක් සහිත සිහින්, දිගටි සිරුරක් ඔවුන්ට ඇත. \n ඔවුන්ගේ පියාපත් පාරභාසක වන අතර විවේකයෙන් සිටින විට දිගට නැවී ඇත.',
     sinhalaGeographicLocation:
-        '- තෙල් කරවැලා සින්ද් සිට බටහිර බෙංගාලය දක්වා, දකුණු ඉන්දියාව සහ ශ්‍රී ලංකාව පුරා විසිරී පවතී. මොවුන් ඇෆ්ගනිස්ථානය, බංග්ලාදේශය සහ නේපාලයේ ද වාර්තා වී ඇත. මෙම සර්පයන් කෙත්වතු සහ පහත් ලඳු කැලෑ, අර්ධ කාන්තාර, පාෂාණ සහිත ප්‍රදේශ සහ වතු, වගා බිම්, තදාසන්න උද්‍යාන සහ ජනාකීර්ණ ප්‍රදේශවලට උඳුන් ඇතුළු විවිධ වාසස්ථානවල ජීවත් වේ. වේයන් ගොඩවල් වල, ගඩොල් ගොඩවල් වල, මී වලවල් වල, ගෙවල් ඇතුලේ පවා ඔවුන් විවේක ගන්නවා. තෙල් කරවැලා ජලයේ හෝ ජල ප්‍රභවයක් ආසන්නයේ නිතර දක්නට ලැබේ.',
+        '- මොවුන් ලොව පුරා දක්නට ලැබෙන අතර උතුරු ඇමරිකාව, යුරෝපය, ආසියාව සහ ඕස්ට්‍රේලියාව යන රටවල විශේෂ පවතී.',
     sinhalaLifeAndHabits:
-        '- තෙල් කරවැලා හුදකලා වන අතර දිවා කාලයේ සහ රාත්‍රී කාලයේ ක්‍රියාකාරී විය හැක. දිවා කාලයේදී ඔවුන් මන්දගාමී වන අතර සාමාන්‍යයෙන් සාමකාමීය. ඔවුන් බොහෝ විට මීයන් සිදුරු, ලිහිල් පස් හෝ සුන්බුන් යට සැඟවී සිටින නිසා කලාතුරකින් දක්නට ලැබේ.',
-    imageUrl1: 'assets/snakes/common_krait_2.jpg',
-    imageUrl2: 'assets/snakes/common_krait_3.jpg',
+        '- Yellowjackets යනු ජනපදවල ජීවත් වන සමාජශීලී බඹරුන් ය. ජනපදය සමන්විත වන්නේ බඹර රැජිනක් සහ කාන්තා සේවිකාවන් කිහිප දෙනෙකුගෙන් ය. බඹර රැජින කූඩුවේ සෛල තුළ බිත්තර දමයි, කාන්තා සේවිකාවන් කීටයන් රැකබලා ගනිමින් කූඩුව නඩත්තු කරයි. \n ඔවුන් ආක්‍රමණශීලී හැසිරීම් සඳහා ප්‍රසිද්ධ වී ඇති අතර, ඔවුන්ට තර්ජනයක් දැනෙනවා නම් ඔවුන් තම කැදැල්ල දැඩි ලෙස ආරක්ෂා කරයි. ඔවුන් මූලික වශයෙන් මල් පැණි සහ අනෙකුත් කෘමීන් මත පෝෂණය වන අතර, ඔවුන් අල්ලා ඔවුන්ගේ කීටයන් පෝෂණය කරයි. \n ග්‍රීෂ්ම සෘතුවේ අග සහ මුල් වැටීමේදී, ජනපදය නව බිසෝවරුන් සහ පිරිමින් බිහි කරයි, ඔවුන් සංසර්ගයේ යෙදී ඊළඟ වසරේ නව ජනපද ආරම්භ කරයි.',
+    imageUrl1: 'assets/wasp/yellowjacket_2.jpg',
+    imageUrl2: 'assets/wasp/yellowjacket_3.jpg',
   ),
 ];
