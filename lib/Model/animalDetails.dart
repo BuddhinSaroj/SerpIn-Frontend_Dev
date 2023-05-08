@@ -175,7 +175,7 @@ List<AnimalDetails> snakeList = [
     imageUrl2: 'assets/snakes/cobra_3.png',
   ),
   AnimalDetails(
-    commonName: 'Green Vine Snake',
+    commonName: 'Sri lanka Green Vine Snake',
     scientificName: 'Ahaetulla nasuta',
     imageUrl: 'assets/snakes/ahaetulla_3.png',
     venomousLevel: 'Non-venomous',
@@ -202,7 +202,7 @@ List<AnimalDetails> snakeList = [
     imageUrl2: 'assets/snakes/ahaetulla_2.png',
   ),
   AnimalDetails(
-    commonName: 'Sri Lankan cat snake',
+    commonName: 'Sri Lankan Cat Snake',
     scientificName: 'Boiga trigonata',
     imageUrl: 'assets/snakes/boiga_trigonata_1.png',
     venomousLevel: 'Mildly Venomous',
@@ -230,7 +230,7 @@ List<AnimalDetails> snakeList = [
   ),
   // from there (Krishani)
   AnimalDetails(
-    commonName: 'Buff Striped Keelback or Indian water snake.',
+    commonName: 'Buff Striped Keelback',
     scientificName: 'Amphiesma Stolatum',
     imageUrl: 'assets/snakes/amphiesma_stolatum_1.jpg',
     venomousLevel: 'Non-Venomous',
@@ -284,7 +284,7 @@ List<AnimalDetails> snakeList = [
     imageUrl2: 'assets/snakes/chrysopelea_ornata_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Indian wolf snake or Indian ground snake.',
+    commonName: 'Indian Wolf Snake',
     scientificName: 'Lycodon Aulicus',
     imageUrl: 'assets/snakes/lycodon_aulicus_1.jpg',
     venomousLevel: 'Non-Venomous',
@@ -338,7 +338,7 @@ List<AnimalDetails> snakeList = [
     imageUrl2: 'assets/snakes/ptyas_mucosa_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Indian python, or Indian rock python',
+    commonName: 'Indian Python',
     scientificName: 'Python Molurus',
     imageUrl: 'assets/snakes/python_molurus_1.jpg',
     venomousLevel: 'Non-Venomous',
@@ -365,7 +365,7 @@ List<AnimalDetails> snakeList = [
     imageUrl2: 'assets/snakes/python_molurus_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Sri Lankan green pit viper',
+    commonName: 'Sri Lankan Green Pit Viper',
     scientificName: 'Trimeresurus trigonocephalus',
     imageUrl: 'assets/snakes/trimeresurus_trigonocephalus_1.jpg',
     venomousLevel: 'Mildly Venomous',
@@ -506,7 +506,7 @@ List<AnimalDetails> beesList = [
 
 List<AnimalDetails> waspList = [
   AnimalDetails(
-    commonName: 'Asian giant hornet',
+    commonName: 'Asian Giant Hornet',
     scientificName: 'Vespa mandarinia',
     imageUrl: 'assets/wasp/asian_giant_hornet_1.jpg',
     venomousLevel: 'Deadly Venomous',
@@ -533,7 +533,7 @@ List<AnimalDetails> waspList = [
     imageUrl2: 'assets/wasp/asian_giant_hornet_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Blackjacket ',
+    commonName: 'Black Jacket ',
     scientificName: 'Vespula consobrina',
     imageUrl: 'assets/wasp/blackjacket_1.jpg',
     venomousLevel: 'Mildly Venomous',
@@ -587,7 +587,7 @@ List<AnimalDetails> waspList = [
     imageUrl2: 'assets/wasp/dark_paper_wasp_3.jpg',
   ),
   AnimalDetails(
-    commonName: 'Yellowjacket',
+    commonName: 'Yellow Jacket',
     scientificName: 'Vespula or Dolichovespula',
     imageUrl: 'assets/wasp/yellowjacket_1.jpg',
     venomousLevel: 'Venomous (not considered dangerous)',

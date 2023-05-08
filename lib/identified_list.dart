@@ -255,10 +255,18 @@ class IdentifyList extends StatelessWidget {
       pItem = beesList[0];
     } else if (animalType == "BEE-Violet_Carpenter_Bee") {
       pItem = beesList[1];
+    } else if (animalType == "BEE-Pure_Green_Sweat_Bee") {
+      pItem = beesList[3];
+    } else if (animalType == "BEE-Western_Honey_Bee") {
+      pItem = beesList[2];
     } else if (animalType == "WASP-Asian_Giant_Hornet") {
       pItem = waspList[0];
     } else if (animalType == "WASP-Blackjacket") {
       pItem = waspList[1];
+    } else if (animalType == "WASP-Dark_Paper_Wasp") {
+      pItem = waspList[2];
+    } else if (animalType == "WASP-Yellowjacket") {
+      pItem = waspList[3];
     } else {
       nullFlag = 1;
     }
